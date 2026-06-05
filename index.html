@@ -33,7 +33,7 @@
             align-items: center;
         }
 
-        /* === NAVIGATION BUBBLES LONG & ROUNDED === */
+        /* === NAVIGATION BUBBLES LONG & ROUNDED (STICKY) === */
         nav {
             width: 96%;
             max-width: 1400px;
@@ -47,6 +47,11 @@
             backdrop-filter: blur(10px);
             border: 1px solid var(--glass-border);
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+            
+            /* GIỮ CỐ ĐỊNH THANH MENU KHI CUỘN TRANG */
+            position: sticky;
+            top: 20px;
+            z-index: 1000;
         }
 
         .nav-brand {
@@ -137,6 +142,50 @@
         h1, h2, h3 { margin-bottom: 20px; color: var(--text-accent); }
         p { line-height: 1.6; margin-bottom: 15px; }
 
+        /* === TRÍCH DẪN & SỞ THÍCH TRONG HỒ SƠ === */
+        .quote-box {
+            background: rgba(56, 189, 248, 0.1);
+            border-left: 4px solid var(--text-accent);
+            padding: 20px 25px;
+            margin: 30px 0;
+            border-radius: 0 15px 15px 0;
+        }
+
+        .quote-box blockquote {
+            font-size: 1.1em;
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            color: #f8fafc;
+        }
+
+        .quote-box cite {
+            font-weight: bold;
+            color: var(--text-accent);
+            font-size: 0.9em;
+        }
+
+        .hobbies-list {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .hobbies-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .hobbies-list li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--text-accent);
+            font-size: 1.2em;
+            top: -2px;
+        }
+
         /* === VIDEO YOUTUBE CONTAINER === */
         .video-box {
             width: 100%;
@@ -193,7 +242,7 @@
             top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(2, 11, 20, 0.7);
             backdrop-filter: blur(8px);
-            z-index: 1000;
+            z-index: 2000;
             justify-content: center;
             align-items: center;
         }
@@ -258,7 +307,19 @@
             <h2>Hồ sơ cá nhân</h2>
             <p><strong>Môn học:</strong> VNU1001 - Nhập môn công nghệ số và trí tuệ nhân tạo</p>
             <p><strong>Trường:</strong> Đại học Công nghệ (UET) - Đại học Quốc gia Hà Nội (VNU)</p>
-            <p>Đây là nơi giới thiệu về bản thân bạn. Bạn có thể thay đổi logo ở thanh menu bằng ảnh cá nhân để website mang đậm dấu ấn cá nhân hơn.</p>
+            
+            <div class="quote-box">
+                <blockquote>"Đừng bao giờ để lộ giới hạn của bản thân cho đến khi bạn đã tự mình phá vỡ nó."</blockquote>
+                <cite>- Câu nói tâm đắc</cite>
+            </div>
+
+            <h3>Sở thích cá nhân</h3>
+            <p>Ngoài thời gian trên giảng đường và nghiên cứu các dòng code, tôi thường dành thời gian cho một vài đam mê cá nhân để duy trì sự sáng tạo và cân bằng nhịp sống:</p>
+            <ul class="hobbies-list">
+                <li><strong>Trải nghiệm Game:</strong> Tôi thường thử thách phản xạ với các tựa game Rhythm đòi hỏi độ chính xác cao như <em>osu!</em>, <em>maimai</em>, cũng như rèn luyện tư duy chiến thuật qua một vài tựa game đối kháng quen thuộc như <em>Mortal Kombat 11</em>.</li>
+                <li><strong>Dựng Video (Video Editing):</strong> Có niềm đam mê đặc biệt với việc thiết kế hiệu ứng hình ảnh và edit video. Tôi thích mày mò sử dụng Adobe Premiere Pro và After Effects để tự tay tạo ra những sản phẩm mang đậm phong cách cá nhân.</li>
+                <li><strong>Không gian âm nhạc:</strong> Đắm chìm trong âm hưởng của âm nhạc Nhật Bản, điển hình là những câu chuyện được kể qua các tác phẩm của <em>Yorushika</em> hay project <em>Tsukuyomi</em>.</li>
+            </ul>
         </section>
 
         <section id="projects" class="section-content">
@@ -277,7 +338,7 @@
 
         <section id="overview" class="section-content">
             <h2>Tổng quan môn học</h2>
-            <p>Đây là tất cả các nội dun mà em đã thực hiện cũng như tích lũy kinh nghiệm trong suốt quá trình học tập môn VNU1001:</p>
+            <p>Đây là tất cả các nội dung mà em đã thực hiện cũng như tích lũy kinh nghiệm trong suốt quá trình học tập môn VNU1001:</p>
             <div class="grid-container">
                 <button class="research-btn" onclick="openModal('topic1')">Thao tác cơ bản với tệp tin và thư mục</button>
                 <button class="research-btn" onclick="openModal('topic2')">Tìm kiếm và đánh giá thông tin học thuật</button>
@@ -325,6 +386,9 @@
             document.getElementById(tabId).classList.add('active');
             // Cập nhật trạng thái active cho nút nav chính xác
             event.currentTarget.classList.add('active');
+            
+            // Tự động cuộn trang lên đầu khi chuyển tab
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         // Dữ liệu nội dung Popup (Gộp cả Tổng quan và Dự án)
@@ -337,13 +401,13 @@
             'proj2': { title: "Thử nghiệm ứng dụng AI cải thiện năng suất", content: "<p>Phân tích điểm số và xu hướng chọn ngành của sinh viên VNU năm qua...</p>" },
             
             // Nội dung Tổng quan
-            'topic1': { title: "Thao tác cơ bản với tệp tin và thư mục", content: "<p>Thông tin về phép thử Turing và các cột mốc quan trọng...</p>" },
-            'topic2': { title: "Tìm kiếm và đánh giá thông tin học thuật", content: "<p>Nguyên lý hoạt động của các hệ thống dựa trên tri thức...</p>" },
-            'topic3': { title: "Viết Prompt hiệu quả cho các tác vụ học tập", content: "<p>Sự khác nhau giữa học có giám sát và học không giám sát...</p>" },
-            'topic4': { title: "Sử dụng công cụ hợp tác trực tuyến cho dự án nhóm", content: "<p>Mô phỏng tế bào thần kinh sinh học bằng toán học...</p>" },
-            'topic5': { title: "Sử dụng AI tạo sinh để hỗ trợ sáng tạo nội dung", content: "<p>Cách máy tính hiểu ngữ pháp và ngữ nghĩa...</p>" },
-            'topic6': { title: "Sử dụng AI có trách nhiệm trong học tập và nghiên cứu", content: "<p>Thuật toán xử lý ảnh và nhận dạng mẫu...</p>" },
-            'topic7': { title: "Phân tích tài liệu với trợ lý nghiên cứu AI", content: "<p>Các quy tắc an toàn khi triển khai trí tuệ nhân tạo...</p>" }
+            'topic1': { title: "Thao tác cơ bản với tệp tin và thư mục", content: "<p>Thông tin chi tiết...</p>" },
+            'topic2': { title: "Tìm kiếm và đánh giá thông tin học thuật", content: "<p>Thông tin chi tiết...</p>" },
+            'topic3': { title: "Viết Prompt hiệu quả cho các tác vụ học tập", content: "<p>Thông tin chi tiết...</p>" },
+            'topic4': { title: "Sử dụng công cụ hợp tác trực tuyến cho dự án nhóm", content: "<p>Thông tin chi tiết...</p>" },
+            'topic5': { title: "Sử dụng AI tạo sinh để hỗ trợ sáng tạo nội dung", content: "<p>Thông tin chi tiết...</p>" },
+            'topic6': { title: "Sử dụng AI có trách nhiệm trong học tập và nghiên cứu", content: "<p>Thông tin chi tiết...</p>" },
+            'topic7': { title: "Phân tích tài liệu với trợ lý nghiên cứu AI", content: "<p>Thông tin chi tiết...</p>" }
         };
 
         const modal = document.getElementById('researchModal');
@@ -356,13 +420,13 @@
                 modalTitle.innerText = data.title;
                 modalBody.innerHTML = data.content;
                 modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
+                document.body.style.overflow = 'hidden'; // Chặn cuộn chuột ở nền
             }
         }
 
         function closeModal() {
             modal.classList.remove('active');
-            document.body.style.overflow = 'auto';
+            document.body.style.overflow = 'auto'; // Mở lại cuộn chuột
         }
 
         modal.addEventListener('click', (e) => {
