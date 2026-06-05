@@ -57,20 +57,10 @@
         }
 
         @keyframes floatUp {
-            0% {
-                transform: translateY(0) translateX(0) scale(1);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.5;
-            }
-            90% {
-                opacity: 0.5;
-            }
-            100% {
-                transform: translateY(-115vh) translateX(60px) scale(1.1);
-                opacity: 0;
-            }
+            0% { transform: translateY(0) translateX(0) scale(1); opacity: 0; }
+            10% { opacity: 0.5; }
+            90% { opacity: 0.5; }
+            100% { transform: translateY(-115vh) translateX(60px) scale(1.1); opacity: 0; }
         }
 
         /* === NAVIGATION BUBBLES LONG & ROUNDED (STICKY) === */
@@ -169,9 +159,7 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
-        .section-content.active {
-            display: block;
-        }
+        .section-content.active { display: block; }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
@@ -233,11 +221,8 @@
             position: relative;
         }
 
-        .summary-column {
-            flex: 1;
-        }
+        .summary-column { flex: 1; }
 
-        /* Vạch ngăn cách ở giữa mờ dần về 2 đầu */
         .summary-divider {
             width: 1px;
             background: linear-gradient(to bottom, transparent, var(--glass-border), transparent);
@@ -257,7 +242,6 @@
             font-size: 0.95em;
         }
 
-        /* Ký hiệu và màu sắc riêng biệt cho từng cột */
         .summary-list.learned li::before {
             content: '✓';
             position: absolute;
@@ -273,7 +257,6 @@
             color: #f87171;
         }
 
-        /* Tối ưu hiển thị trên thiết bị di động */
         @media (max-width: 768px) {
             .summary-container {
                 flex-direction: column;
@@ -297,11 +280,7 @@
             aspect-ratio: 16 / 9;
         }
 
-        .video-box iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
+        .video-box iframe { width: 100%; height: 100%; border: none; }
 
         /* === GRID 7 NÚT === */
         .grid-container {
@@ -335,7 +314,7 @@
             box-shadow: 0 5px 15px rgba(0, 135, 147, 0.3);
         }
 
-        /* === NOTION-STYLE POPUP (MODAL) === */
+        /* === NOTION-STYLE POPUP (MODAL) VÀ STYLE CHO TIÊU ĐỀ BÊN TRONG === */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -361,6 +340,26 @@
             position: relative;
             animation: slideUp 0.3s ease-out;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Style dành riêng cho các tiêu đề phụ (h3) bên trong modal popup */
+        #modal-body h3 {
+            font-size: 1.15em;
+            color: var(--text-accent);
+            margin-top: 25px;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px dashed rgba(56, 189, 248, 0.3); /* Đường gạch chân đứt nét */
+        }
+
+        #modal-body ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        #modal-body li {
+            margin-bottom: 8px;
+            line-height: 1.5;
         }
 
         @keyframes slideUp {
@@ -405,6 +404,7 @@
     </nav>
 
     <main>
+        <!-- Tab 1: Hồ sơ -->
         <section id="profile" class="section-content active">
             <h2>Hồ sơ cá nhân</h2>
             <p><strong>Môn học:</strong> VNU1001 - Nhập môn công nghệ số và trí tuệ nhân tạo</p>
@@ -424,6 +424,7 @@
             </ul>
         </section>
 
+        <!-- Tab 2: Dự án -->
         <section id="projects" class="section-content">
             <h2>Dự án tiêu biểu</h2>
             
@@ -438,6 +439,7 @@
             </div>
         </section>
 
+        <!-- Tab 3: Tổng quan -->
         <section id="overview" class="section-content">
             <h2>Tổng quan môn học</h2>
             <p>Đây là tất cả các nội dung mà em đã thực hiện cũng như tích lũy kinh nghiệm trong suốt quá trình học tập môn VNU1001:</p>
@@ -452,13 +454,14 @@
             </div>
         </section>
 
+        <!-- Tab 4: Tâm tư -->
         <section id="thoughts" class="section-content">
             <h2>Góc tâm tư</h2>
             <p>Bên cạnh những dòng code logic hay những thuật toán phức tạp của VNU1001, âm nhạc là nơi để tôi cân bằng lại mọi thứ. Đặc biệt là những âm hưởng mang đậm nét thanh xuân từ <strong>Yorushika</strong>.</p>
             <p>Những câu chuyện được kể qua từng bài hát giống như một cuốn nhật ký ghi lại góc nhìn của một người vừa bước chân đến với tuổi trưởng thành. Sự chênh vênh, những mộng tưởng và cả nét thẩm mỹ đầy tính thơ ấy đôi khi lại là nguồn cảm hứng lớn nhất để tôi tiếp tục sáng tạo, dù là khi dựng một video mới hay thiết kế những dòng code này.</p>
-            <p><em>(Bạn có thể chèn thêm lời bài hát, trải nghiệm cá nhân về một project âm nhạc, hoặc thay thế text này theo ý muốn nhé).</em></p>
         </section>
 
+        <!-- Tab 5: Tổng kết -->
         <section id="summary" class="section-content">
             <h2>Tổng kết quá trình</h2>
             <p>Nhìn lại chặng đường đồng hành cùng môn học VNU1001, đây là những cột mốc ý nghĩa đánh dấu sự phát triển trong tư duy và kỹ năng công nghệ:</p>
@@ -467,26 +470,25 @@
                 <div class="summary-column">
                     <h3>Những điểm đã học được</h3>
                     <ul class="summary-list learned">
-                        <li><strong>Làm chủ không gian số:</strong> Thành thạo kỹ năng quản lý dữ liệu, khai thác nguồn tài liệu học thuật đáng tin cậy của VNU và áp dụng kỹ thuật cấu trúc Prompt để tối ưu hiệu suất làm việc với AI.</li>
-                        <li><strong>Tư duy lập trình thực tiễn:</strong> Biết cách chuyển hóa các kiến thức công nghệ nền tảng thành giải pháp cụ thể cho dự án nhóm, nắm vững quy trình tích hợp các chức năng cốt lõi của hệ thống.</li>
-                        <li><strong>Tối ưu hóa quy trình cộng tác:</strong> Phối hợp ăn ý trên các công cụ trực tuyến để điều phối công việc, quản lý mã nguồn và cùng nhau kiểm soát tiến độ chung.</li>
+                        <li><strong>Làm chủ không gian số:</strong> Thành thạo kỹ năng quản lý dữ liệu, khai thác nguồn tài liệu học thuật đáng tin cậy của VNU và áp dụng kỹ thuật cấu trúc Prompt.</li>
+                        <li><strong>Tư duy lập trình thực tiễn:</strong> Biết cách chuyển hóa kiến thức công nghệ thành giải pháp cho dự án nhóm.</li>
+                        <li><strong>Tối ưu hóa quy trình cộng tác:</strong> Phối hợp ăn ý trên các công cụ trực tuyến để điều phối công việc, quản lý mã nguồn.</li>
                     </ul>
                 </div>
-
                 <div class="summary-divider"></div>
-
                 <div class="summary-column">
                     <h3>Những khó khăn gặp phải</h3>
                     <ul class="summary-list difficulties">
-                        <li><strong>Áp lực phân bổ thời gian:</strong> Khá thử thách khi vừa phải hoàn thiện sản phẩm công nghệ số cho đồ án nhóm, vừa phải đảm bảo thời gian ôn luyện khối lượng bài tập lớn từ các môn nặng tính học thuật đầu năm như Giải tích hay Đại số tuyến tính.</li>
-                        <li><strong>Rào cản kỹ thuật hệ thống:</strong> Gặp một số trục trặc trong việc đồng bộ hóa dữ liệu thời gian thực, xử lý đồng bộ mã nguồn và kiểm soát độ trễ hiển thị của giao diện trong những giai đoạn đầu tích hợp module.</li>
-                        <li><strong>Thống nhất luồng làm việc chung:</strong> Việc tối ưu hóa dòng chảy công việc và giải quyết các xung đột phát sinh khi cộng tác trên không gian trực tuyến đòi hỏi nhiều cuộc thảo luận để đạt được tiếng nói chung tối ưu nhất.</li>
+                        <li><strong>Áp lực phân bổ thời gian:</strong> Thử thách khi vừa hoàn thiện sản phẩm vừa đảm bảo thời gian ôn luyện khối lượng bài tập lớn từ các môn đại cương.</li>
+                        <li><strong>Rào cản kỹ thuật hệ thống:</strong> Gặp trục trặc trong việc đồng bộ hóa dữ liệu và kiểm soát độ trễ hiển thị của giao diện trong giai đoạn đầu.</li>
+                        <li><strong>Thống nhất luồng làm việc chung:</strong> Việc giải quyết các xung đột phát sinh khi cộng tác trên không gian trực tuyến đòi hỏi nhiều thảo luận.</li>
                     </ul>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- NOTION-STYLE POPUP -->
     <div id="researchModal" class="modal-overlay">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal()">&times;</span>
@@ -497,6 +499,7 @@
         </div>
     </div>
 
+    <!-- JAVASCRIPT -->
     <script>
         function switchTab(tabId) {
             document.querySelectorAll('.section-content').forEach(section => {
@@ -519,35 +522,63 @@
             for (let i = 0; i < bubbleCount; i++) {
                 const bubble = document.createElement('span');
                 bubble.className = 'bubble';
-                
                 const size = Math.random() * 20 + 8;
                 bubble.style.width = `${size}px`;
                 bubble.style.height = `${size}px`;
                 bubble.style.left = `${Math.random() * 100}%`;
-                
                 bubble.style.animationDuration = `${Math.random() * 6 + 8}s`; 
                 bubble.style.animationDelay = `${Math.random() * 8}s`;
-                
                 container.appendChild(bubble);
             }
         }
 
         window.addEventListener('DOMContentLoaded', generateBubbles);
 
+        // NỘI DUNG ĐÃ ĐƯỢC CHIA TIÊU ĐỀ PHỤ
         const researchData = {
-            'proj1': { title: "Hệ thống đấu giá trực tuyến", content: `
-                <p>Chi tiết về quá trình xây dựng hệ thống đấu giá trực tuyến sử dụng các nền tảng công nghệ cơ bản...</p>
-                <p>Nội dung đang được cập nhật thêm tài liệu đính kèm.</p>
-            ` },
-            'proj2': { title: "Thử nghiệm ứng dụng AI cải thiện năng suất", content: "<p>Phân tích điểm số và các phương pháp ứng dụng mô hình ngôn ngữ lớn nhằm tối ưu hóa hiệu năng làm việc nhóm và nghiên cứu khoa học của sinh viên VNU...</p>" },
+            /* MỤC DỰ ÁN (PROJECTS) */
+            'proj1': { 
+                title: "Hệ thống đấu giá trực tuyến", 
+                content: `
+                    <h3>1. Mục tiêu dự án</h3>
+                    <p>Xây dựng một nền tảng web cho phép người dùng đăng tải vật phẩm, định giá khởi điểm và tham gia đấu giá theo thời gian thực.</p>
+                    
+                    <h3>2. Công nghệ sử dụng</h3>
+                    <ul>
+                        <li><strong>Frontend:</strong> HTML5, CSS3, JavaScript.</li>
+                        <li><strong>Backend/Cơ sở dữ liệu:</strong> Tích hợp các module quản lý phiên đấu giá và cập nhật dữ liệu.</li>
+                    </ul>
+
+                    <h3>3. Chức năng chính</h3>
+                    <ul>
+                        <li>Hệ thống đếm ngược thời gian kết thúc đấu giá chính xác.</li>
+                        <li>Cập nhật giá thầu liên tục khi có người trả giá cao hơn.</li>
+                        <li>Giao diện thân thiện và dễ dàng quản lý sản phẩm.</li>
+                    </ul>
+                ` 
+            },
+            'proj2': { 
+                title: "Thử nghiệm ứng dụng AI cải thiện năng suất", 
+                content: `
+                    <h3>1. Bối cảnh nghiên cứu</h3>
+                    <p>Phân tích cách sinh viên VNU đang sử dụng các công cụ Generative AI (như ChatGPT, Gemini) để hỗ trợ quá trình tự học và nghiên cứu khoa học.</p>
+                    
+                    <h3>2. Phương pháp triển khai</h3>
+                    <p>Đánh giá hiệu suất trước và sau khi áp dụng AI vào các tác vụ cụ thể như: tóm tắt tài liệu học thuật dài, gợi ý cấu trúc bài thuyết trình, và sửa lỗi code (Debug).</p>
+
+                    <h3>3. Kết quả đánh giá</h3>
+                    <p>Mô hình ngôn ngữ lớn giúp tiết kiệm tới 30% thời gian tìm kiếm thông tin ban đầu. Tuy nhiên, người dùng bắt buộc phải có kỹ năng đối chiếu (Fact-checking) để tránh những thông tin ảo do AI tự tạo ra (AI Hallucination).</p>
+                ` 
+            },
             
-            'topic1': { title: "Thao tác cơ bản với tệp tin và thư mục", content: "<p>Nội dung chi tiết về kỹ năng quản lý dữ liệu số, cấu trúc cây thư mục khoa học phục vụ lưu trữ học thuật...</p>" },
-            'topic2': { title: "Tìm kiếm và đánh giá thông tin học thuật", content: "<p>Khai thác hệ thống thư viện số VNU, cách chọn lọc nguồn dữ liệu tin cậy thông qua các chỉ số khoa học uy tín...</p>" },
-            'topic3': { title: "Viết Prompt hiệu quả cho các tác vụ học tập", content: "<p>Ứng dụng kỹ thuật cấu trúc prompt (Context, Role, Task, Constraint) để khai thác các mô hình Generative AI tối ưu nhất...</p>" },
-            'topic4': { title: "Sử dụng công cụ hợp tác trực tuyến cho dự án nhóm", content: "<p>Kinh nghiệm điều phối công việc bằng Git, quản lý tiến độ trên không gian số tích hợp trực tuyến...</p>" },
-            'topic5': { title: "Sử dụng AI tạo sinh để hỗ trợ sáng tạo nội dung", content: "<p>Phương pháp minh họa ý tưởng, soạn thảo đề cương nghiên cứu kết hợp giữa tư duy con người và sức mạnh AI...</p>" },
-            'topic6': { title: "Sử dụng AI có trách nhiệm trong học tập và nghiên cứu", content: "<p>Tìm hiểu các quy chuẩn đạo đức khoa học, phòng tránh đạo văn và tính minh bạch khi trích dẫn tài liệu từ AI...</p>" },
-            'topic7': { title: "Phân tích tài liệu với trợ lý nghiên cứu AI", content: "<p>Tối ưu thời gian đọc hiểu tài liệu nghiên cứu dày đặc nhờ các bộ lọc ngôn ngữ và công cụ tóm tắt thông minh...</p>" }
+            /* MỤC TỔNG QUAN (TOPICS) */
+            'topic1': { title: "Thao tác cơ bản với tệp tin và thư mục", content: "<h3>Kỹ năng nền tảng</h3><p>Nội dung chi tiết về kỹ năng quản lý dữ liệu số, cấu trúc cây thư mục khoa học phục vụ lưu trữ học thuật một cách hệ thống.</p>" },
+            'topic2': { title: "Tìm kiếm và đánh giá thông tin học thuật", content: "<h3>Khai thác dữ liệu</h3><p>Phương pháp khai thác hệ thống thư viện số VNU, cách chọn lọc nguồn dữ liệu tin cậy thông qua các chỉ số khoa học uy tín.</p>" },
+            'topic3': { title: "Viết Prompt hiệu quả cho các tác vụ học tập", content: "<h3>Kỹ thuật Prompting</h3><p>Ứng dụng kỹ thuật cấu trúc prompt (Bối cảnh, Vai trò, Nhiệm vụ, Giới hạn) để khai thác các mô hình Generative AI tối ưu nhất.</p>" },
+            'topic4': { title: "Sử dụng công cụ hợp tác trực tuyến", content: "<h3>Kỹ năng làm việc nhóm</h3><p>Kinh nghiệm điều phối công việc, quản lý tiến độ trên không gian số tích hợp trực tuyến và giải quyết xung đột mã nguồn.</p>" },
+            'topic5': { title: "Sử dụng AI tạo sinh hỗ trợ sáng tạo", content: "<h3>Hỗ trợ lên ý tưởng</h3><p>Phương pháp minh họa ý tưởng, soạn thảo đề cương nghiên cứu kết hợp giữa tư duy logic của con người và tốc độ của AI.</p>" },
+            'topic6': { title: "Sử dụng AI có trách nhiệm", content: "<h3>Đạo đức công nghệ</h3><p>Tìm hiểu các quy chuẩn đạo đức khoa học, phòng tránh đạo văn và đảm bảo tính minh bạch khi tham khảo tài liệu từ AI.</p>" },
+            'topic7': { title: "Phân tích tài liệu với trợ lý AI", content: "<h3>Tối ưu thời gian đọc</h3><p>Sử dụng các bộ lọc ngôn ngữ và công cụ tóm tắt thông minh của AI để nắm bắt nhanh cốt lõi của các bài báo cáo khoa học dày đặc.</p>" }
         };
 
         const modal = document.getElementById('researchModal');
