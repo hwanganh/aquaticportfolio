@@ -540,13 +540,18 @@
             'proj1': { 
                 title: "Hệ thống đấu giá trực tuyến", 
                 content: `
-                    <h3>1. Mục tiêu dự án</h3>
-                    <p>Xây dựng một nền tảng web cho phép người dùng đăng tải vật phẩm, định giá khởi điểm và tham gia đấu giá theo thời gian thực.</p>
+                    <h3>1. Mô tả tổng quan</h3>
+                    <p>Hệ thống đấu giá trực tuyến là một ứng dụng phần mềm hoạt động theo mô hình Client - Server, cho phép người dùng tham gia các phiên đấu giá tài sản theo thời gian thực (real-time).
+                    - Phạm vi hệ thống: Ứng dụng cung cấp nền tảng giao dịch cho 3 đối tượng chính: Quản trị viên (Admin - duyệt nạp/rút tiền), Người bán (Seller - đăng tài sản), và Người mua (Bidder - nạp tiền, đặt giá).
+                    - Điểm nổi bật: Đồng bộ hóa giá thầu giữa nhiều Client cùng lúc bằng công nghệ Multi-threading và Socket Programming. Hệ thống tích hợp thuật toán xử lý luồng phiên đấu giá (Auction) và xác thực giao dịch đặt giá (BidTransaction) chặt chẽ, cùng luồng Scanner tự động quét và đóng các phiên khi hết hạn.
+                    </p>
                     
                     <h3>2. Công nghệ sử dụng</h3>
                     <ul>
-                        <li><strong>Frontend:</strong> HTML5, CSS3, JavaScript.</li>
-                        <li><strong>Backend/Cơ sở dữ liệu:</strong> Tích hợp các module quản lý phiên đấu giá và cập nhật dữ liệu.</li>
+                        <li><strong>Ngôn ngữ phát triển:</strong> Java (Yêu cầu JDK 21 trở lên).</li>
+                        <li><strong>Giao diện người dùng (GUI):</strong> JavaFX.</li>
+                        <li><strong>Cơ sở dữ liệu:</strong> MySQL.</li>
+                        <li><strong>Thư viện kết nối DB: JDBC Driver (mysql-connector-j).</li>
                     </ul>
 
                     <h3>3. Chức năng chính</h3>
