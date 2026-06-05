@@ -8,8 +8,7 @@
         /* === RESET & BIẾN MÀU (AQUARIUM & DEEP SEA VIBE) === */
         :root {
             --bg-deep: #01060f;
-            /* Gradient dọc mô phỏng từ mặt nước xuống đáy biển sâu */
-            --bg-water: linear-gradient(to bottom, #0a2e4c 0%, #051a2e 40%, #020f1c 70%, #01060f 100%);
+            --bg-water: linear-gradient(to bottom, #0a2e4c 0%, #05192e 40%, #020f1c 70%, #01060f 100%);
             --glass-bg: rgba(255, 255, 255, 0.04);
             --glass-border: rgba(255, 255, 255, 0.08);
             --text-main: #e2e8f0;
@@ -42,9 +41,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1; /* Nằm hoàn toàn dưới nền */
+            z-index: -1;
             overflow: hidden;
-            pointer-events: none; /* Không cản trở click chuột */
+            pointer-events: none;
         }
 
         .bubble {
@@ -57,7 +56,6 @@
             animation: floatUp 12s infinite linear;
         }
 
-        /* Tạo hiệu ứng bóng nước nổi lên lắc lư nhẹ nhàng */
         @keyframes floatUp {
             0% {
                 transform: translateY(0) translateX(0) scale(1);
@@ -83,7 +81,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(5, 26, 46, 0.5); /* Bo nền tối hơn một chút để nổi bật trên nền nước */
+            background: rgba(5, 26, 46, 0.5);
             padding: 10px 30px; 
             border-radius: 50px;
             backdrop-filter: blur(15px);
@@ -225,6 +223,67 @@
             color: var(--text-accent);
             font-size: 1.2em;
             top: -2px;
+        }
+
+        /* === BỐ CỤC 2 BÊN CỦA MỤC TỔNG KẾT === */
+        .summary-container {
+            display: flex;
+            gap: 40px;
+            margin-top: 30px;
+            position: relative;
+        }
+
+        .summary-column {
+            flex: 1;
+        }
+
+        /* Vạch ngăn cách ở giữa mờ dần về 2 đầu */
+        .summary-divider {
+            width: 1px;
+            background: linear-gradient(to bottom, transparent, var(--glass-border), transparent);
+            align-self: stretch;
+        }
+
+        .summary-list {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .summary-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 15px;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+
+        /* Ký hiệu và màu sắc riêng biệt cho từng cột */
+        .summary-list.learned li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4ade80;
+            font-weight: bold;
+        }
+
+        .summary-list.difficulties li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: #f87171;
+        }
+
+        /* Tối ưu hiển thị trên thiết bị di động */
+        @media (max-width: 768px) {
+            .summary-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+            .summary-divider {
+                height: 1px;
+                width: 100%;
+                background: linear-gradient(to right, transparent, var(--glass-border), transparent);
+            }
         }
 
         /* === VIDEO YOUTUBE CONTAINER === */
@@ -402,7 +461,29 @@
 
         <section id="summary" class="section-content">
             <h2>Tổng kết quá trình</h2>
-            <p>Đánh giá lại những kiến thức đã thu nạp được sau khóa học VNU1001. Đây là những nền tảng quan trọng cho tương lai.</p>
+            <p>Nhìn lại chặng đường đồng hành cùng môn học VNU1001, đây là những cột mốc ý nghĩa đánh dấu sự phát triển trong tư duy và kỹ năng công nghệ:</p>
+            
+            <div class="summary-container">
+                <div class="summary-column">
+                    <h3>Những điểm đã học được</h3>
+                    <ul class="summary-list learned">
+                        <li><strong>Làm chủ không gian số:</strong> Thành thạo kỹ năng quản lý dữ liệu, khai thác nguồn tài liệu học thuật đáng tin cậy của VNU và áp dụng kỹ thuật cấu trúc Prompt để tối ưu hiệu suất làm việc với AI.</li>
+                        <li><strong>Tư duy lập trình thực tiễn:</strong> Biết cách chuyển hóa các kiến thức công nghệ nền tảng thành giải pháp cụ thể cho dự án nhóm, nắm vững quy trình tích hợp các chức năng cốt lõi của hệ thống.</li>
+                        <li><strong>Tối ưu hóa quy trình cộng tác:</strong> Phối hợp ăn ý trên các công cụ trực tuyến để điều phối công việc, quản lý mã nguồn và cùng nhau kiểm soát tiến độ chung.</li>
+                    </ul>
+                </div>
+
+                <div class="summary-divider"></div>
+
+                <div class="summary-column">
+                    <h3>Những khó khăn gặp phải</h3>
+                    <ul class="summary-list difficulties">
+                        <li><strong>Áp lực phân bổ thời gian:</strong> Khá thử thách khi vừa phải hoàn thiện sản phẩm công nghệ số cho đồ án nhóm, vừa phải đảm bảo thời gian ôn luyện khối lượng bài tập lớn từ các môn nặng tính học thuật đầu năm như Giải tích hay Đại số tuyến tính.</li>
+                        <li><strong>Rào cản kỹ thuật hệ thống:</strong> Gặp một số trục trặc trong việc đồng bộ hóa dữ liệu thời gian thực, xử lý đồng bộ mã nguồn và kiểm soát độ trễ hiển thị của giao diện trong những giai đoạn đầu tích hợp module.</li>
+                        <li><strong>Thống nhất luồng làm việc chung:</strong> Việc tối ưu hóa dòng chảy công việc và giải quyết các xung đột phát sinh khi cộng tác trên không gian trực tuyến đòi hỏi nhiều cuộc thảo luận để đạt được tiếng nói chung tối ưu nhất.</li>
+                    </ul>
+                </div>
+            </div>
         </section>
     </main>
 
@@ -417,7 +498,6 @@
     </div>
 
     <script>
-        // Chuyển tab
         function switchTab(tabId) {
             document.querySelectorAll('.section-content').forEach(section => {
                 section.classList.remove('active');
@@ -432,24 +512,19 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Tạo bong bóng nổi ngẫu nhiên bằng JS sống động
         function generateBubbles() {
             const container = document.getElementById('bubbleContainer');
-            const bubbleCount = 15; // Số lượng bong bóng hiển thị cùng lúc trên màn hình
+            const bubbleCount = 15;
 
             for (let i = 0; i < bubbleCount; i++) {
                 const bubble = document.createElement('span');
                 bubble.className = 'bubble';
                 
-                // Kích thước ngẫu nhiên từ 8px đến 28px
                 const size = Math.random() * 20 + 8;
                 bubble.style.width = `${size}px`;
                 bubble.style.height = `${size}px`;
-                
-                // Vị trí ngang ngẫu nhiên dọc màn hình
                 bubble.style.left = `${Math.random() * 100}%`;
                 
-                // Thời gian nổi và độ trễ xuất hiện ngẫu nhiên để bong bóng mọc không đều nhau
                 bubble.style.animationDuration = `${Math.random() * 6 + 8}s`; 
                 bubble.style.animationDelay = `${Math.random() * 8}s`;
                 
@@ -457,10 +532,8 @@
             }
         }
 
-        // Kích hoạt sinh bong bóng sau khi trang tải xong
         window.addEventListener('DOMContentLoaded', generateBubbles);
 
-        // Dữ liệu nội dung Popup
         const researchData = {
             'proj1': { title: "Hệ thống đấu giá trực tuyến", content: `
                 <p>Chi tiết về quá trình xây dựng hệ thống đấu giá trực tuyến sử dụng các nền tảng công nghệ cơ bản...</p>
