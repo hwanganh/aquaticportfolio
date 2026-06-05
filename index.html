@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio VNU1001 - Nhập môn CNS & TTNT</title>
     <style>
-        /* === RESET & BIẾN MÀU (AQUARIUM VIBE) === */
+        /* === RESET & BIẾN MÀU (AQUARIUM & DEEP SEA VIBE) === */
         :root {
-            --bg-deep: #020b14;
-            --bg-water: linear-gradient(135deg, #051937, #004d7a, #008793);
-            --glass-bg: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --text-main: #e0f2fe;
+            --bg-deep: #01060f;
+            /* Gradient dọc mô phỏng từ mặt nước xuống đáy biển sâu */
+            --bg-water: linear-gradient(to bottom, #0a2e4c 0%, #051a2e 40%, #020f1c 70%, #01060f 100%);
+            --glass-bg: rgba(255, 255, 255, 0.04);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --text-main: #e2e8f0;
             --text-accent: #38bdf8;
         }
 
@@ -31,6 +32,47 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            position: relative;
+        }
+
+        /* === EFFECT: FLOATING BUBBLES BACKGROUND === */
+        .bubble-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Nằm hoàn toàn dưới nền */
+            overflow: hidden;
+            pointer-events: none; /* Không cản trở click chuột */
+        }
+
+        .bubble {
+            position: absolute;
+            bottom: -50px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 50%;
+            box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.4);
+            animation: floatUp 12s infinite linear;
+        }
+
+        /* Tạo hiệu ứng bóng nước nổi lên lắc lư nhẹ nhàng */
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) translateX(0) scale(1);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.5;
+            }
+            90% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(-115vh) translateX(60px) scale(1.1);
+                opacity: 0;
+            }
         }
 
         /* === NAVIGATION BUBBLES LONG & ROUNDED (STICKY) === */
@@ -41,14 +83,12 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: var(--glass-bg);
+            background: rgba(5, 26, 46, 0.5); /* Bo nền tối hơn một chút để nổi bật trên nền nước */
             padding: 10px 30px; 
             border-radius: 50px;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
             border: 1px solid var(--glass-border);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-            
-            /* GIỮ CỐ ĐỊNH THANH MENU KHI CUỘN TRANG */
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
             position: sticky;
             top: 20px;
             z-index: 1000;
@@ -117,6 +157,7 @@
             margin-top: 40px;
             flex-grow: 1;
             padding-bottom: 50px;
+            z-index: 10;
         }
 
         .section-content {
@@ -144,7 +185,7 @@
 
         /* === TRÍCH DẪN & SỞ THÍCH TRONG HỒ SƠ === */
         .quote-box {
-            background: rgba(56, 189, 248, 0.1);
+            background: rgba(56, 189, 248, 0.08);
             border-left: 4px solid var(--text-accent);
             padding: 20px 25px;
             margin: 30px 0;
@@ -212,7 +253,7 @@
         }
 
         .research-btn {
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(255, 255, 255, 0.02);
             border: 1px solid var(--glass-border);
             padding: 20px;
             border-radius: 15px;
@@ -229,10 +270,10 @@
         }
 
         .research-btn:hover {
-            background: rgba(56, 189, 248, 0.15);
+            background: rgba(56, 189, 248, 0.12);
             transform: translateY(-3px);
             border-color: var(--text-accent);
-            box-shadow: 0 5px 15px rgba(0, 135, 147, 0.4);
+            box-shadow: 0 5px 15px rgba(0, 135, 147, 0.3);
         }
 
         /* === NOTION-STYLE POPUP (MODAL) === */
@@ -240,7 +281,7 @@
             display: none;
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(2, 11, 20, 0.7);
+            background: rgba(1, 6, 15, 0.8);
             backdrop-filter: blur(8px);
             z-index: 2000;
             justify-content: center;
@@ -250,21 +291,21 @@
         .modal-overlay.active { display: flex; }
 
         .modal-content {
-            background: #0f172a;
+            background: #09111e;
             width: 80%;
             max-width: 800px;
             max-height: 85vh;
             border-radius: 15px;
-            border: 1px solid var(--text-accent);
+            border: 1px solid var(--glass-border);
             padding: 40px;
             overflow-y: auto;
             position: relative;
             animation: slideUp 0.3s ease-out;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
         }
 
         @keyframes slideUp {
-            from { opacity: 0; transform: translateY(50px); }
+            from { opacity: 0; transform: translateY(40px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
@@ -273,7 +314,7 @@
             top: 20px;
             right: 25px;
             font-size: 28px;
-            color: #94a3b8;
+            color: #64748b;
             cursor: pointer;
             transition: color 0.2s;
         }
@@ -283,6 +324,8 @@
     </style>
 </head>
 <body>
+
+    <div class="bubble-container" id="bubbleContainer"></div>
 
     <nav>
         <div class="nav-brand">
@@ -384,30 +427,54 @@
             });
 
             document.getElementById(tabId).classList.add('active');
-            // Cập nhật trạng thái active cho nút nav chính xác
             event.currentTarget.classList.add('active');
             
-            // Tự động cuộn trang lên đầu khi chuyển tab
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Dữ liệu nội dung Popup (Gộp cả Tổng quan và Dự án)
+        // Tạo bong bóng nổi ngẫu nhiên bằng JS sống động
+        function generateBubbles() {
+            const container = document.getElementById('bubbleContainer');
+            const bubbleCount = 15; // Số lượng bong bóng hiển thị cùng lúc trên màn hình
+
+            for (let i = 0; i < bubbleCount; i++) {
+                const bubble = document.createElement('span');
+                bubble.className = 'bubble';
+                
+                // Kích thước ngẫu nhiên từ 8px đến 28px
+                const size = Math.random() * 20 + 8;
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+                
+                // Vị trí ngang ngẫu nhiên dọc màn hình
+                bubble.style.left = `${Math.random() * 100}%`;
+                
+                // Thời gian nổi và độ trễ xuất hiện ngẫu nhiên để bong bóng mọc không đều nhau
+                bubble.style.animationDuration = `${Math.random() * 6 + 8}s`; 
+                bubble.style.animationDelay = `${Math.random() * 8}s`;
+                
+                container.appendChild(bubble);
+            }
+        }
+
+        // Kích hoạt sinh bong bóng sau khi trang tải xong
+        window.addEventListener('DOMContentLoaded', generateBubbles);
+
+        // Dữ liệu nội dung Popup
         const researchData = {
-            // Nội dung Dự án
             'proj1': { title: "Hệ thống đấu giá trực tuyến", content: `
-                <p>Chi tiết về quá trình xây dựng chatbot sử dụng Python và thư viện NLTK...</p>
-                <p>Bạn có thể viết nhiều dòng thoải mái ở đây.</p>
+                <p>Chi tiết về quá trình xây dựng hệ thống đấu giá trực tuyến sử dụng các nền tảng công nghệ cơ bản...</p>
+                <p>Nội dung đang được cập nhật thêm tài liệu đính kèm.</p>
             ` },
-            'proj2': { title: "Thử nghiệm ứng dụng AI cải thiện năng suất", content: "<p>Phân tích điểm số và xu hướng chọn ngành của sinh viên VNU năm qua...</p>" },
+            'proj2': { title: "Thử nghiệm ứng dụng AI cải thiện năng suất", content: "<p>Phân tích điểm số và các phương pháp ứng dụng mô hình ngôn ngữ lớn nhằm tối ưu hóa hiệu năng làm việc nhóm và nghiên cứu khoa học của sinh viên VNU...</p>" },
             
-            // Nội dung Tổng quan
-            'topic1': { title: "Thao tác cơ bản với tệp tin và thư mục", content: "<p>Thông tin chi tiết...</p>" },
-            'topic2': { title: "Tìm kiếm và đánh giá thông tin học thuật", content: "<p>Thông tin chi tiết...</p>" },
-            'topic3': { title: "Viết Prompt hiệu quả cho các tác vụ học tập", content: "<p>Thông tin chi tiết...</p>" },
-            'topic4': { title: "Sử dụng công cụ hợp tác trực tuyến cho dự án nhóm", content: "<p>Thông tin chi tiết...</p>" },
-            'topic5': { title: "Sử dụng AI tạo sinh để hỗ trợ sáng tạo nội dung", content: "<p>Thông tin chi tiết...</p>" },
-            'topic6': { title: "Sử dụng AI có trách nhiệm trong học tập và nghiên cứu", content: "<p>Thông tin chi tiết...</p>" },
-            'topic7': { title: "Phân tích tài liệu với trợ lý nghiên cứu AI", content: "<p>Thông tin chi tiết...</p>" }
+            'topic1': { title: "Thao tác cơ bản với tệp tin và thư mục", content: "<p>Nội dung chi tiết về kỹ năng quản lý dữ liệu số, cấu trúc cây thư mục khoa học phục vụ lưu trữ học thuật...</p>" },
+            'topic2': { title: "Tìm kiếm và đánh giá thông tin học thuật", content: "<p>Khai thác hệ thống thư viện số VNU, cách chọn lọc nguồn dữ liệu tin cậy thông qua các chỉ số khoa học uy tín...</p>" },
+            'topic3': { title: "Viết Prompt hiệu quả cho các tác vụ học tập", content: "<p>Ứng dụng kỹ thuật cấu trúc prompt (Context, Role, Task, Constraint) để khai thác các mô hình Generative AI tối ưu nhất...</p>" },
+            'topic4': { title: "Sử dụng công cụ hợp tác trực tuyến cho dự án nhóm", content: "<p>Kinh nghiệm điều phối công việc bằng Git, quản lý tiến độ trên không gian số tích hợp trực tuyến...</p>" },
+            'topic5': { title: "Sử dụng AI tạo sinh để hỗ trợ sáng tạo nội dung", content: "<p>Phương pháp minh họa ý tưởng, soạn thảo đề cương nghiên cứu kết hợp giữa tư duy con người và sức mạnh AI...</p>" },
+            'topic6': { title: "Sử dụng AI có trách nhiệm trong học tập và nghiên cứu", content: "<p>Tìm hiểu các quy chuẩn đạo đức khoa học, phòng tránh đạo văn và tính minh bạch khi trích dẫn tài liệu từ AI...</p>" },
+            'topic7': { title: "Phân tích tài liệu với trợ lý nghiên cứu AI", content: "<p>Tối ưu thời gian đọc hiểu tài liệu nghiên cứu dày đặc nhờ các bộ lọc ngôn ngữ và công cụ tóm tắt thông minh...</p>" }
         };
 
         const modal = document.getElementById('researchModal');
@@ -420,13 +487,13 @@
                 modalTitle.innerText = data.title;
                 modalBody.innerHTML = data.content;
                 modal.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Chặn cuộn chuột ở nền
+                document.body.style.overflow = 'hidden';
             }
         }
 
         function closeModal() {
             modal.classList.remove('active');
-            document.body.style.overflow = 'auto'; // Mở lại cuộn chuột
+            document.body.style.overflow = 'auto';
         }
 
         modal.addEventListener('click', (e) => {
