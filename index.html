@@ -222,13 +222,13 @@
             font-size: 1.1em;
             font-style: italic;
             line-height: 1.6;
-            margin-bottom: 5px; /* Giảm margin một chút để dòng dịch gần lại */
+            margin-bottom: 5px;
             color: #f8fafc;
         }
         
         .quote-box .translation {
             font-size: 0.9em;
-            color: rgba(226, 232, 240, 0.7); /* Màu xám sáng nhẹ */
+            color: rgba(226, 232, 240, 0.7);
             font-style: italic;
             margin-bottom: 12px;
             display: block;
@@ -362,7 +362,7 @@
             box-shadow: 0 5px 15px rgba(0, 135, 147, 0.3);
         }
 
-        /* === NÚT KIỂU MỚI DÀNH CHO TAB "TỔNG QUAN" (TRƯỢT NGANG & DẠNG THẺ) === */
+        /* === NÚT KIỂU MỚI DÀNH CHO TAB "TỔNG QUAN" (TRƯỢT NGANG) === */
         .topic-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -397,7 +397,42 @@
             box-shadow: 5px 5px 15px rgba(0, 135, 147, 0.2);
         }
 
-        /* === NOTION-STYLE POPUP (MODAL) VÀ STYLE CHO TIÊU ĐỀ BÊN TRONG === */
+        /* === FLOATING SOCIAL BUTTONS === */
+        .social-floating {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 1500; /* Nằm dưới popup nhưng trên content */
+        }
+
+        .social-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(5, 26, 46, 0.6);
+            border: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 20px;
+            color: var(--text-main);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .social-btn:hover {
+            background: rgba(56, 189, 248, 0.2);
+            transform: scale(1.1) translateY(-3px);
+            border-color: var(--text-accent);
+            box-shadow: 0 8px 20px rgba(56, 189, 248, 0.4);
+        }
+
+        /* === NOTION-STYLE POPUP (MODAL) === */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -425,7 +460,6 @@
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
         }
 
-        /* Style dành riêng cho ảnh bên trong modal popup */
         .modal-img {
             width: 100%;
             max-height: 400px;
@@ -436,7 +470,6 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
-        /* Style dành riêng cho các tiêu đề phụ (h3) bên trong modal popup */
         #modal-body h3 {
             font-size: 1.15em;
             color: var(--text-accent);
@@ -504,7 +537,7 @@
             <div class="quote-box">
                 <blockquote>"All the world's a stage, and all the men and women merely players."</blockquote>
                 <span class="translation">"Thế giới này là một sân khấu, và tất cả đàn ông và phụ nữ là diễn viên của sân khấu đó."</span>
-                <cite>- William Shakespeare, Địa Đàng Tìm Thấy, Hồi II, Cảnh VII</cite>
+                <cite>- William Shakespeare, Twelfth Night</cite>
             </div>
             
             <div class="profile-header">
@@ -594,6 +627,13 @@
                 Nội dung...
             </div>
         </div>
+    </div>
+
+    <div class="social-floating">
+        <a href="https://github.com/your-github" target="_blank" class="social-btn" title="GitHub">💻</a>
+        <a href="mailto:your-email@gmail.com" class="social-btn" title="Email">✉️</a>
+        <a href="https://facebook.com/your-facebook" target="_blank" class="social-btn" title="Facebook">📘</a>
+        <a href="https://youtube.com/your-channel" target="_blank" class="social-btn" title="YouTube">📺</a>
     </div>
 
     <script>
