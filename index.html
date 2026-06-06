@@ -169,6 +169,45 @@
         h1, h2, h3 { margin-bottom: 20px; color: var(--text-accent); }
         p { line-height: 1.6; margin-bottom: 15px; }
 
+        /* === HỒ SƠ: LAYOUT AVATAR DỌC VÀ THÔNG TIN === */
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 25px;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid var(--glass-border);
+        }
+
+        .profile-avatar {
+            width: 130px; /* Chiều rộng ảnh */
+            height: 175px; /* Chiều cao ảnh (tỉ lệ dọc) */
+            object-fit: cover;
+            border-radius: 12px;
+            border: 2px solid var(--text-accent);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            flex-shrink: 0;
+        }
+
+        .profile-info {
+            flex-grow: 1;
+        }
+
+        /* Responsive cho điện thoại: Avatar ở trên, thông tin ở dưới */
+        @media (max-width: 600px) {
+            .profile-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .profile-avatar {
+                width: 100%;
+                max-width: 200px;
+                height: 250px;
+            }
+        }
+
         /* === TRÍCH DẪN & SỞ THÍCH TRONG HỒ SƠ === */
         .quote-box {
             background: rgba(56, 189, 248, 0.08);
@@ -339,7 +378,7 @@
             text-align: left;
             backdrop-filter: blur(5px);
             min-height: 70px;
-            gap: 10px; /* Khoảng cách giữa emoji và chữ */
+            gap: 10px;
         }
 
         .topic-btn:hover {
@@ -348,7 +387,6 @@
             border-color: var(--text-accent);
             box-shadow: 5px 5px 15px rgba(0, 135, 147, 0.2);
         }
-
 
         /* === NOTION-STYLE POPUP (MODAL) VÀ STYLE CHO TIÊU ĐỀ BÊN TRONG === */
         .modal-overlay {
@@ -454,8 +492,17 @@
         <!-- Tab 1: Hồ sơ -->
         <section id="profile" class="section-content active">
             <h2>Hồ sơ cá nhân</h2>
-            <p><strong>Ngành học:</strong> Mạng máy tính và truyền thông dữ liệu</p>
-            <p><strong>Trường:</strong> Đại học Công nghệ (UET) - Đại học Quốc gia Hà Nội (VNU)</p>
+            
+            <!-- Vùng chứa Ảnh dọc và Thông tin cá nhân -->
+            <div class="profile-header">
+                <!-- Sửa link ảnh dọc của bạn ở phần src dưới đây -->
+                <img src="https://via.placeholder.com/300x400/004d7a/38bdf8?text=Anh+Doc" alt="Avatar Cá Nhân" class="profile-avatar">
+                
+                <div class="profile-info">
+                    <p><strong>Ngành học:</strong> Mạng máy tính và truyền thông dữ liệu</p>
+                    <p><strong>Trường:</strong> Đại học Công nghệ (UET) - Đại học Quốc gia Hà Nội (VNU)</p>
+                </div>
+            </div>
             
             <div class="quote-box">
                 <blockquote>"Đừng bao giờ để lộ giới hạn của bản thân cho đến khi bạn đã tự mình phá vỡ nó."</blockquote>
