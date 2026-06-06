@@ -339,6 +339,7 @@
             text-align: left;
             backdrop-filter: blur(5px);
             min-height: 70px;
+            gap: 10px; /* Khoảng cách giữa emoji và chữ */
         }
 
         .topic-btn:hover {
@@ -480,8 +481,8 @@
 
             <p>Dưới đây là các dự án/bài tập lớn em đã thực hiện trong quá trình học:</p>
             <div class="grid-container">
-                <button class="research-btn" onclick="openModal('proj1')">Hệ thống đấu giá trực tuyến</button>
-                <button class="research-btn" onclick="openModal('proj2')">Thử nghiệm ứng dụng AI cải thiện năng suất</button>
+                <button class="research-btn" onclick="openModal('proj1')">🔨 Hệ thống đấu giá trực tuyến</button>
+                <button class="research-btn" onclick="openModal('proj2')">🤖 Thử nghiệm ứng dụng AI cải thiện năng suất</button>
             </div>
         </section>
 
@@ -491,13 +492,13 @@
             <p>Đây là tất cả các nội dung mà em đã thực hiện cũng như tích lũy kinh nghiệm trong suốt quá trình học tập môn VNU1001:</p>
             
             <div class="topic-grid">
-                <button class="topic-btn" onclick="openModal('topic1')">Thao tác cơ bản với tệp tin và thư mục</button>
-                <button class="topic-btn" onclick="openModal('topic2')">Tìm kiếm và đánh giá thông tin học thuật</button>
-                <button class="topic-btn" onclick="openModal('topic3')">Viết Prompt hiệu quả cho các tác vụ học tập</button>
-                <button class="topic-btn" onclick="openModal('topic4')">Sử dụng công cụ hợp tác trực tuyến cho dự án nhóm</button>
-                <button class="topic-btn" onclick="openModal('topic5')">Sử dụng AI tạo sinh để hỗ trợ sáng tạo nội dung</button>
-                <button class="topic-btn" onclick="openModal('topic6')">Sử dụng AI có trách nhiệm trong học tập và nghiên cứu</button>
-                <button class="topic-btn" onclick="openModal('topic7')">Phân tích tài liệu với trợ lý nghiên cứu AI</button>
+                <button class="topic-btn" onclick="openModal('topic1')">📁 Thao tác cơ bản với tệp tin và thư mục</button>
+                <button class="topic-btn" onclick="openModal('topic2')">🔍 Tìm kiếm và đánh giá thông tin học thuật</button>
+                <button class="topic-btn" onclick="openModal('topic3')">✍️ Viết Prompt hiệu quả cho các tác vụ học tập</button>
+                <button class="topic-btn" onclick="openModal('topic4')">🤝 Sử dụng công cụ hợp tác trực tuyến</button>
+                <button class="topic-btn" onclick="openModal('topic5')">🎨 Sử dụng AI tạo sinh để hỗ trợ sáng tạo nội dung</button>
+                <button class="topic-btn" onclick="openModal('topic6')">🛡️ Sử dụng AI có trách nhiệm trong học tập</button>
+                <button class="topic-btn" onclick="openModal('topic7')">📊 Phân tích tài liệu với trợ lý nghiên cứu AI</button>
             </div>
         </section>
 
@@ -584,10 +585,10 @@
         const researchData = {
             /* MỤC DỰ ÁN (PROJECTS) */
             'proj1': { 
-                title: "Hệ thống đấu giá trực tuyến", 
+                title: "🔨 Hệ thống đấu giá trực tuyến", 
                 content: `
                     <!-- ẢNH DỰ ÁN NẰM NGAY DƯỚI TIÊU ĐỀ -->
-                    <img src=src/hethongdaugia.png alt="Hình ảnh dự án" class="modal-img">
+                    <img src="src/hethongdaugia.png" alt="Hình ảnh dự án" class="modal-img">
 
                     <h3>1. Mô tả tổng quan</h3>
                     <p>Hệ thống đấu giá trực tuyến là một ứng dụng phần mềm hoạt động theo mô hình Client - Server, cho phép người dùng tham gia các phiên đấu giá tài sản theo thời gian thực (real-time).</p>
@@ -613,7 +614,7 @@
                 ` 
             },
             'proj2': { 
-                title: "Thử nghiệm ứng dụng AI cải thiện năng suất", 
+                title: "🤖 Thử nghiệm ứng dụng AI cải thiện năng suất", 
                 content: `
                     <h3>1. Bối cảnh nghiên cứu</h3>
                     <p>Với công nghệ trí tuệ nhân tạo đang liên tục phát triển trong những năm gần đây, việc ứng dụng AI trong học tập của các sinh viên nay đã dễ dàng hơn bao giờ hết. Thử nghiệm trên mong muốn tìm hiểu về các phương thức khác nhau và sự khác biệt về mặt hiệu quả so với cách học truyền thống.</p>
@@ -627,13 +628,13 @@
             },
             
             /* MỤC TỔNG QUAN (TOPICS) */
-            'topic1': { title: "Thao tác cơ bản với tệp tin và thư mục", content: "<h3>Kỹ năng nền tảng</h3><p>Nội dung chi tiết về kỹ năng quản lý dữ liệu số, cấu trúc cây thư mục khoa học phục vụ lưu trữ học thuật một cách hệ thống.</p>" },
-            'topic2': { title: "Tìm kiếm và đánh giá thông tin học thuật", content: "<h3>Khai thác dữ liệu</h3><p>Phương pháp khai thác hệ thống thư viện số VNU, cách chọn lọc nguồn dữ liệu tin cậy thông qua các chỉ số khoa học uy tín.</p>" },
-            'topic3': { title: "Viết Prompt hiệu quả cho các tác vụ học tập", content: "<h3>Kỹ thuật Prompting</h3><p>Ứng dụng kỹ thuật cấu trúc prompt (Bối cảnh, Vai trò, Nhiệm vụ, Giới hạn) để khai thác các mô hình Generative AI tối ưu nhất.</p>" },
-            'topic4': { title: "Sử dụng công cụ hợp tác trực tuyến", content: "<h3>Kỹ năng làm việc nhóm</h3><p>Kinh nghiệm điều phối công việc, quản lý tiến độ trên không gian số tích hợp trực tuyến và giải quyết xung đột mã nguồn.</p>" },
-            'topic5': { title: "Sử dụng AI tạo sinh hỗ trợ sáng tạo", content: "<h3>Hỗ trợ lên ý tưởng</h3><p>Phương pháp minh họa ý tưởng, soạn thảo đề cương nghiên cứu kết hợp giữa tư duy logic của con người và tốc độ của AI.</p>" },
-            'topic6': { title: "Sử dụng AI có trách nhiệm", content: "<h3>Đạo đức công nghệ</h3><p>Tìm hiểu các quy chuẩn đạo đức khoa học, phòng tránh đạo văn và đảm bảo tính minh bạch khi tham khảo tài liệu từ AI.</p>" },
-            'topic7': { title: "Phân tích tài liệu với trợ lý AI", content: "<h3>Tối ưu thời gian đọc</h3><p>Sử dụng các bộ lọc ngôn ngữ và công cụ tóm tắt thông minh của AI để nắm bắt nhanh cốt lõi của các bài báo cáo khoa học dày đặc.</p>" }
+            'topic1': { title: "📁 Thao tác cơ bản với tệp tin và thư mục", content: "<h3>Kỹ năng nền tảng</h3><p>Nội dung chi tiết về kỹ năng quản lý dữ liệu số, cấu trúc cây thư mục khoa học phục vụ lưu trữ học thuật một cách hệ thống.</p>" },
+            'topic2': { title: "🔍 Tìm kiếm và đánh giá thông tin học thuật", content: "<h3>Khai thác dữ liệu</h3><p>Phương pháp khai thác hệ thống thư viện số VNU, cách chọn lọc nguồn dữ liệu tin cậy thông qua các chỉ số khoa học uy tín.</p>" },
+            'topic3': { title: "✍️ Viết Prompt hiệu quả cho các tác vụ học tập", content: "<h3>Kỹ thuật Prompting</h3><p>Ứng dụng kỹ thuật cấu trúc prompt (Bối cảnh, Vai trò, Nhiệm vụ, Giới hạn) để khai thác các mô hình Generative AI tối ưu nhất.</p>" },
+            'topic4': { title: "🤝 Sử dụng công cụ hợp tác trực tuyến", content: "<h3>Kỹ năng làm việc nhóm</h3><p>Kinh nghiệm điều phối công việc, quản lý tiến độ trên không gian số tích hợp trực tuyến và giải quyết xung đột mã nguồn.</p>" },
+            'topic5': { title: "🎨 Sử dụng AI tạo sinh hỗ trợ sáng tạo", content: "<h3>Hỗ trợ lên ý tưởng</h3><p>Phương pháp minh họa ý tưởng, soạn thảo đề cương nghiên cứu kết hợp giữa tư duy logic của con người và tốc độ của AI.</p>" },
+            'topic6': { title: "🛡️ Sử dụng AI có trách nhiệm", content: "<h3>Đạo đức công nghệ</h3><p>Tìm hiểu các quy chuẩn đạo đức khoa học, phòng tránh đạo văn và đảm bảo tính minh bạch khi tham khảo tài liệu từ AI.</p>" },
+            'topic7': { title: "📊 Phân tích tài liệu với trợ lý AI", content: "<h3>Tối ưu thời gian đọc</h3><p>Sử dụng các bộ lọc ngôn ngữ và công cụ tóm tắt thông minh của AI để nắm bắt nhanh cốt lõi của các bài báo cáo khoa học dày đặc.</p>" }
         };
 
         const modal = document.getElementById('researchModal');
