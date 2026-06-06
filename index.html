@@ -172,7 +172,7 @@
         /* === HỒ SƠ: LAYOUT AVATAR DỌC VÀ THÔNG TIN === */
         .profile-header {
             display: flex;
-            align-items: flex-start; /* Cho avatar neo ở trên cùng của hộp */
+            align-items: flex-start;
             gap: 25px;
             margin-bottom: 25px;
             background: rgba(255, 255, 255, 0.02);
@@ -189,18 +189,17 @@
             border: 2px solid var(--text-accent);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
             flex-shrink: 0;
-            margin-top: 5px; /* Căn chỉnh nhẹ để cân đối với dòng chữ đầu tiên */
+            margin-top: 5px;
         }
 
         .profile-info {
             flex-grow: 1;
         }
 
-        /* Responsive cho điện thoại: Avatar ở trên, thông tin ở dưới */
         @media (max-width: 600px) {
             .profile-header {
                 flex-direction: column;
-                align-items: center; /* Căn giữa avatar trên mobile */
+                align-items: center;
             }
             .profile-avatar {
                 width: 100%;
@@ -223,8 +222,16 @@
             font-size: 1.1em;
             font-style: italic;
             line-height: 1.6;
-            margin-bottom: 10px;
+            margin-bottom: 5px; /* Giảm margin một chút để dòng dịch gần lại */
             color: #f8fafc;
+        }
+        
+        .quote-box .translation {
+            font-size: 0.9em;
+            color: rgba(226, 232, 240, 0.7); /* Màu xám sáng nhẹ */
+            font-style: italic;
+            margin-bottom: 12px;
+            display: block;
         }
 
         .quote-box cite {
@@ -493,9 +500,11 @@
     <main>
         <section id="profile" class="section-content active">
             <h2>Hồ sơ cá nhân</h2>
+            
             <div class="quote-box">
-                <blockquote>"Be not afraid of greatness. Some are born great, some achieve greatness, and others have greatness thrust upon them."</blockquote>
-                <cite>- William Shakespeare, Twelfth Night </cite>
+                <blockquote>"All the world's a stage, and all the men and women merely players."</blockquote>
+                <span class="translation">"Thế giới này là một sân khấu, và tất cả đàn ông và phụ nữ là diễn viên của sân khấu đó."</span>
+                <cite>- William Shakespeare, As You Like It, Hồi II, Cảnh VII</cite>
             </div>
             
             <div class="profile-header">
