@@ -536,4 +536,168 @@
             <p>Đây là tất cả các nội dung mà em đã thực hiện cũng như tích lũy kinh nghiệm trong suốt quá trình học tập môn VNU1001:</p>
             
             <div class="topic-grid">
-                <button class="
+                <button class="topic-btn" onclick="openModal('topic1')">📁 <strong>Thao tác cơ bản với tệp tin và thư mục</strong></button>
+                <button class="topic-btn" onclick="openModal('topic2')">🔍 <strong>Tìm kiếm và đánh giá thông tin học thuật</strong></button>
+                <button class="topic-btn" onclick="openModal('topic3')">✍️ <strong>Viết Prompt hiệu quả cho các tác vụ học tập</strong></button>
+                <button class="topic-btn" onclick="openModal('topic4')">🤝 <strong>Sử dụng công cụ hợp tác trực tuyến</strong></button>
+                <button class="topic-btn" onclick="openModal('topic5')">🎨 <strong>Sử dụng AI tạo sinh để hỗ trợ sáng tạo nội dung</strong></button>
+                <button class="topic-btn" onclick="openModal('topic6')">🛡️ <strong>Sử dụng AI có trách nhiệm trong học tập</strong></button>
+                <button class="topic-btn" onclick="openModal('topic7')">📊 <strong>Phân tích tài liệu với trợ lý nghiên cứu AI</strong></button>
+            </div>
+        </section>
+
+        <section id="thoughts" class="section-content">
+            <h2>Góc tâm tư</h2>
+            <p>Bên cạnh những dòng code logic hay những thuật toán phức tạp của VNU1001, âm nhạc là nơi để tôi cân bằng lại mọi thứ. Đặc biệt là những âm hưởng mang đậm nét thanh xuân từ <strong>Yorushika</strong>.</p>
+            <p>Những câu chuyện được kể qua từng bài hát giống như một cuốn nhật ký ghi lại góc nhìn của một người vừa bước chân đến với tuổi trưởng thành. Sự chênh vênh, những mộng tưởng và cả nét thẩm mỹ đầy tính thơ ấy đôi khi lại là nguồn cảm hứng lớn nhất để tôi tiếp tục sáng tạo, dù là khi dựng một video mới hay thiết kế những dòng code này.</p>
+        </section>
+
+        <section id="summary" class="section-content">
+            <h2>Tổng kết quá trình</h2>
+            <p>Về quá trình học tập Nhập môn công nghệ số & trí tuệ nhân tạo tại VNU, em nhận thấy mình đã học được khá nhiều kinh nghiệm trong việc sử dụng thiết bị công nghệ điện tử và áp dụng trí tuệ nhân tạo cho việc học tập và hỗ trợ dự án. Từ đó nhận thấy trí tuệ nhân tạo (AI) không chỉ đơn giản là tạo sinh những hình ảnh vô nghĩa ta thường thấy ở trên không gian mạng, mà đó còn là một công cụ đắc lực cho rất nhiều công việc và ngành nghề khác nhau. Trong quá trình học tập, em cũng đã gặp phải một vài thử thách và khó khăn mà đã cho em nhiều bài học quý để phát triển kỹ năng và cải thiện bản thân khi tiếp tục học tại môi trường Đại học Công nghệ nói riêng và các môi trường làm việc nói chung.</p>
+            
+            <div class="summary-container">
+                <div class="summary-column">
+                    <h3>Những điểm đã học được</h3>
+                    <ul class="summary-list learned">
+                        <li><strong>Tối ưu trong việc sử dụng AI:</strong> Thành thạo kỹ năng viết prompt hiệu quả, biến các AI chatbot trở thành người bạn đồng hành một cách hiệu quả và có tổ chức.</li>
+                        <li><strong>Tư duy lập trình thực tiễn:</strong> Biết cách chuyển hóa kiến thức công nghệ thành giải pháp cho dự án nhóm.</li>
+                        <li><strong>Tối ưu hóa quy trình cộng tác:</strong> Phối hợp ăn ý trên các công cụ trực tuyến để điều phối công việc, quản lý mã nguồn.</li>
+                    </ul>
+                </div>
+                <div class="summary-divider"></div>
+                <div class="summary-column">
+                    <h3>Những khó khăn gặp phải</h3>
+                    <ul class="summary-list difficulties">
+                        <li><strong>Áp lực phân bổ thời gian:</strong> Thử thách khi vừa hoàn thiện sản phẩm vừa đảm bảo thời gian ôn luyện khối lượng bài tập lớn từ các môn đại cương.</li>
+                        <li><strong>Rào cản kỹ thuật hệ thống:</strong> Gặp trục trặc trong việc đồng bộ hóa dữ liệu và kiểm soát độ trễ hiển thị của giao diện trang web trong giai đoạn đầu.</li>
+                        <li><strong>Thống nhất luồng làm việc chung:</strong> Việc giải quyết các xung đột phát sinh trong quá trình học trên không gian trực tuyến đòi hỏi nhiều thảo luận giữa các thành viên.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="researchModal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 id="modal-title">Tiêu đề</h2>
+            <div id="modal-body">
+                Nội dung...
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tabId) {
+            document.querySelectorAll('.section-content').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function generateBubbles() {
+            const container = document.getElementById('bubbleContainer');
+            const bubbleCount = 15;
+
+            for (let i = 0; i < bubbleCount; i++) {
+                const bubble = document.createElement('span');
+                bubble.className = 'bubble';
+                const size = Math.random() * 20 + 8;
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+                bubble.style.left = `${Math.random() * 100}%`;
+                bubble.style.animationDuration = `${Math.random() * 6 + 8}s`; 
+                bubble.style.animationDelay = `${Math.random() * 8}s`;
+                container.appendChild(bubble);
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', generateBubbles);
+
+        const researchData = {
+            /* MỤC DỰ ÁN (PROJECTS) */
+            'proj1': { 
+                title: "🔨 Hệ thống đấu giá trực tuyến", 
+                content: `
+                    <img src="src/hethongdaugia.png" alt="Hình ảnh dự án" class="modal-img">
+
+                    <h3>1. Mô tả tổng quan</h3>
+                    <p>Hệ thống đấu giá trực tuyến là một ứng dụng phần mềm hoạt động theo mô hình Client - Server, cho phép người dùng tham gia các phiên đấu giá tài sản theo thời gian thực (real-time).</p>
+                    <ul>
+                        <li><strong>Phạm vi hệ thống:</strong> Ứng dụng cung cấp nền tảng giao dịch cho 3 đối tượng chính: Quản trị viên (Admin - duyệt nạp/rút tiền), Người bán (Seller - đăng tài sản), và Người mua (Bidder - nạp tiền, đặt giá).</li>
+                        <li><strong>Điểm nổi bật:</strong> Đồng bộ hóa giá thầu giữa nhiều Client cùng lúc bằng công nghệ Multi-threading và Socket Programming. Hệ thống tích hợp thuật toán xử lý luồng phiên đấu giá (Auction) và xác thực giao dịch đặt giá (BidTransaction) chặt chẽ, cùng luồng Scanner tự động quét và đóng các phiên khi hết hạn.</li>
+                    </ul>
+                    
+                    <h3>2. Công nghệ sử dụng</h3>
+                    <ul>
+                        <li><strong>Ngôn ngữ phát triển:</strong> Java (Yêu cầu JDK 21 trở lên).</li>
+                        <li><strong>Giao diện người dùng (GUI):</strong> JavaFX.</li>
+                        <li><strong>Cơ sở dữ liệu:</strong> MySQL.</li>
+                        <li><strong>Thư viện kết nối Database:</strong> JDBC Driver (mysql-connector-j).</li>
+                    </ul>
+
+                    <h3>3. Chức năng chính</h3>
+                    <ul>
+                        <li>Hệ thống đếm ngược thời gian kết thúc đấu giá chính xác.</li>
+                        <li>Cập nhật giá thầu liên tục khi có người trả giá cao hơn.</li>
+                        <li>Giao diện thân thiện và dễ dàng quản lý sản phẩm.</li>
+                    </ul>
+                ` 
+            },
+            'proj2': { 
+                title: "🤖 Thử nghiệm ứng dụng AI cải thiện năng suất", 
+                content: `
+                    <h3>1. Bối cảnh nghiên cứu</h3>
+                    <p>Với công nghệ trí tuệ nhân tạo đang liên tục phát triển trong những năm gần đây, việc ứng dụng AI trong học tập của các sinh viên nay đã dễ dàng hơn bao giờ hết. Thử nghiệm trên mong muốn tìm hiểu về các phương thức khác nhau và sự khác biệt về mặt hiệu quả so với cách học truyền thống.</p>
+                    
+                    <h3>2. Phương pháp triển khai</h3>
+                    <p>Đánh giá hiệu suất trước và sau khi áp dụng AI vào các tác vụ cụ thể như: tóm tắt tài liệu học thuật dài, gợi ý cấu trúc bài thuyết trình, và sửa lỗi code trong quá trình học tập của mình tại UET.</p>
+
+                    <h3>3. Kết quả đánh giá</h3>
+                    <p>Các mô hình AI sẵn có cho sinh viên giúp tiết kiệm tới 30% thời gian tìm kiếm thông tin ban đầu, tích cực tương tác với sinh viên và tóm tắt tương đối đầy đủ ý của tài liệu được cung cấp. Tuy nhiên, các sinh viên bắt buộc phải có kỹ năng đối chiếu để tránh những thông tin ảo do AI tự tạo ra và có trách nhiệm trong việc sử dụng AI cho việc học tập thay vì sử dụng bừa bãi.</p>
+                ` 
+            },
+            
+            /* MỤC TỔNG QUAN (TOPICS) */
+            'topic1': { title: "📁 Thao tác cơ bản với tệp tin và thư mục", content: "<h3>Kỹ năng nền tảng</h3><p>Nội dung chi tiết về kỹ năng quản lý dữ liệu số, cấu trúc cây thư mục khoa học phục vụ lưu trữ học thuật một cách hệ thống.</p>" },
+            'topic2': { title: "🔍 Tìm kiếm và đánh giá thông tin học thuật", content: "<h3>Khai thác dữ liệu</h3><p>Phương pháp khai thác hệ thống thư viện số VNU, cách chọn lọc nguồn dữ liệu tin cậy thông qua các chỉ số khoa học uy tín.</p>" },
+            'topic3': { title: "✍️ Viết Prompt hiệu quả cho các tác vụ học tập", content: "<h3>Kỹ thuật Prompting</h3><p>Ứng dụng kỹ thuật cấu trúc prompt (Bối cảnh, Vai trò, Nhiệm vụ, Giới hạn) để khai thác các mô hình Generative AI tối ưu nhất.</p>" },
+            'topic4': { title: "🤝 Sử dụng công cụ hợp tác trực tuyến", content: "<h3>Kỹ năng làm việc nhóm</h3><p>Kinh nghiệm điều phối công việc, quản lý tiến độ trên không gian số tích hợp trực tuyến và giải quyết xung đột mã nguồn.</p>" },
+            'topic5': { title: "🎨 Sử dụng AI tạo sinh hỗ trợ sáng tạo", content: "<h3>Hỗ trợ lên ý tưởng</h3><p>Phương pháp minh họa ý tưởng, soạn thảo đề cương nghiên cứu kết hợp giữa tư duy logic của con người và tốc độ của AI.</p>" },
+            'topic6': { title: "🛡️ Sử dụng AI có trách nhiệm", content: "<h3>Đạo đức công nghệ</h3><p>Tìm hiểu các quy chuẩn đạo đức khoa học, phòng tránh đạo văn và đảm bảo tính minh bạch khi tham khảo tài liệu từ AI.</p>" },
+            'topic7': { title: "📊 Phân tích tài liệu với trợ lý AI", content: "<h3>Tối ưu thời gian đọc</h3><p>Sử dụng các bộ lọc ngôn ngữ và công cụ tóm tắt thông minh của AI để nắm bắt nhanh cốt lõi của các bài báo cáo khoa học dày đặc.</p>" }
+        };
+
+        const modal = document.getElementById('researchModal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalBody = document.getElementById('modal-body');
+
+        function openModal(id) {
+            const data = researchData[id];
+            if(data) {
+                modalTitle.innerText = data.title;
+                modalBody.innerHTML = data.content;
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+    </script>
+</body>
+</html>
