@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio VNU1001 - Nhập môn CNS & TTNT</title>
     
-    <!-- Thư viện Font Awesome để lấy Icon mxh -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -211,15 +210,36 @@
                 height: 250px;
                 margin-top: 0;
             }
+            .quote-container {
+                flex-direction: column;
+                text-align: center;
+            }
         }
 
-        /* === TRÍCH DẪN & SỞ THÍCH TRONG HỒ SƠ === */
+        /* === TRÍCH DẪN & AVATAR TRONG HỒ SƠ === */
+        .quote-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
         .quote-box {
+            flex-grow: 1;
             background: rgba(56, 189, 248, 0.08);
             border-left: 4px solid var(--text-accent);
             padding: 20px 25px;
-            margin: 30px 0;
             border-radius: 0 15px 15px 0;
+        }
+
+        .quote-avatar {
+            width: 120px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 2px solid var(--text-accent);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            flex-shrink: 0;
         }
 
         .quote-box blockquote {
@@ -366,10 +386,10 @@
             box-shadow: 0 5px 15px rgba(0, 135, 147, 0.3);
         }
 
-        /* === NÚT DÀNH CHO TAB "TỔNG QUAN" === */
-        .topic-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        /* === NÚT KIỂU MỚI DÀNH CHO TAB "TỔNG QUAN" (TRƯỢT NGANG & DẠNG THẺ XẾP DỌC) === */
+        .topic-list {
+            display: flex;
+            flex-direction: column;
             gap: 15px;
             margin-top: 20px;
         }
@@ -386,12 +406,13 @@
             cursor: pointer;
             transition: all 0.3s ease;
             display: flex;
-            align-items: center;
-            justify-content: flex-start;
+            flex-direction: column;
+            align-items: flex-start;
             text-align: left;
             backdrop-filter: blur(5px);
-            min-height: 70px;
-            gap: 10px;
+            min-height: 75px;
+            gap: 4px;
+            width: 100%;
         }
 
         .topic-btn:hover {
@@ -399,6 +420,12 @@
             transform: translateX(8px);
             border-color: var(--text-accent);
             box-shadow: 5px 5px 15px rgba(0, 135, 147, 0.2);
+        }
+        
+        .topic-btn .topic-desc {
+            font-size: 0.85em;
+            color: rgba(226, 232, 240, 0.6);
+            font-weight: normal;
         }
 
         /* === FLOATING SOCIAL BUTTONS (DÙNG ICON) === */
@@ -422,7 +449,7 @@
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            font-size: 22px; /* Chỉnh kích thước icon vừa vặn */
+            font-size: 22px; 
             color: var(--text-main);
             backdrop-filter: blur(10px);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
@@ -433,7 +460,7 @@
             background: rgba(56, 189, 248, 0.2);
             transform: scale(1.1) translateY(-3px);
             border-color: var(--text-accent);
-            color: var(--text-accent); /* Đổi màu icon khi hover */
+            color: var(--text-accent); 
             box-shadow: 0 8px 20px rgba(56, 189, 248, 0.4);
         }
 
@@ -493,6 +520,26 @@
             margin-bottom: 8px;
             line-height: 1.5;
         }
+        
+        /* Style cho nút mở file PDF */
+        .pdf-link-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--text-accent);
+            text-decoration: none;
+            border: 1px solid var(--text-accent);
+            border-radius: 8px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .pdf-link-btn:hover {
+            background: var(--text-accent);
+            color: #09111e;
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4);
+        }
 
         @keyframes slideUp {
             from { opacity: 0; transform: translateY(40px); }
@@ -536,14 +583,16 @@
     </nav>
 
     <main>
-        <!-- Tab 1: Hồ sơ -->
         <section id="profile" class="section-content active">
             <h2>Hồ sơ cá nhân</h2>
             
-            <div class="quote-box">
-                <blockquote>"All the world's a stage, and all the men and women merely players."</blockquote>
-                <span class="translation">"Thế giới này là một sân khấu, và tất cả đàn ông và phụ nữ là diễn viên của sân khấu đó."</span>
-                <cite>- William Shakespeare, Địa Đàng Tìm Thấy, Hồi II, Cảnh VII</cite>
+            <div class="quote-container">
+                <div class="quote-box">
+                    <blockquote>"All the world's a stage, and all the men and women merely players."</blockquote>
+                    <span class="translation">"Thế giới này là một sân khấu, và tất cả đàn ông và phụ nữ là diễn viên của sân khấu đó."</span>
+                    <cite>- William Shakespeare, Địa Đàng Tìm Thấy, Hồi II, Cảnh VII</cite>
+                </div>
+                <img src="src/icon.jpg" alt="Avatar Trích Dẫn" class="quote-avatar">
             </div>
             
             <div class="profile-header">
@@ -564,7 +613,6 @@
             </div>
         </section>
 
-        <!-- Tab 2: Dự án -->
         <section id="projects" class="section-content">
             <h2>Dự án tiêu biểu</h2>
             
@@ -579,30 +627,53 @@
             </div>
         </section>
 
-        <!-- Tab 3: Tổng quan -->
         <section id="overview" class="section-content">
             <h2>Tổng quan môn học</h2>
             <p>Đây là tất cả các nội dung mà em đã thực hiện cũng như tích lũy kinh nghiệm trong suốt quá trình học tập môn VNU1001:</p>
             
-            <div class="topic-grid">
-                <button class="topic-btn" onclick="openModal('topic1')">📁 <strong>Thao tác cơ bản với tệp tin và thư mục</strong></button>
-                <button class="topic-btn" onclick="openModal('topic2')">🔍 <strong>Tìm kiếm và đánh giá thông tin học thuật</strong></button>
-                <button class="topic-btn" onclick="openModal('topic3')">✍️ <strong>Viết Prompt hiệu quả cho các tác vụ học tập</strong></button>
-                <button class="topic-btn" onclick="openModal('topic4')">🤝 <strong>Sử dụng công cụ hợp tác trực tuyến</strong></button>
-                <button class="topic-btn" onclick="openModal('topic5')">🎨 <strong>Sử dụng AI tạo sinh để hỗ trợ sáng tạo nội dung</strong></button>
-                <button class="topic-btn" onclick="openModal('topic6')">🛡️ <strong>Sử dụng AI có trách nhiệm trong học tập</strong></button>
-                <button class="topic-btn" onclick="openModal('topic7')">📊 <strong>Phân tích tài liệu với trợ lý nghiên cứu AI</strong></button>
+            <div class="topic-list">
+                <button class="topic-btn" onclick="openModal('topic1')">
+                    <div>
+                        📁 <strong>Thao tác cơ bản với tệp tin và thư mục</strong>
+                    </div>
+                    <span class="topic-desc">Hướng dẫn chi tiết quản lý, tạo thư mục và hệ thống tệp tin hiệu quả.</span>
+                </button>
+                <button class="topic-btn" onclick="openModal('topic2')">
+                    <div>
+                        🔍 <strong>Tìm kiếm và đánh giá thông tin học thuật</strong>
+                    </div>
+                    <span class="topic-desc">Sử dụng công cụ tìm kiếm và đánh giá nguồn tài liệu tin cậy.</span>
+                </button>
+                <button class="topic-btn" onclick="openModal('topic3')">
+                    <div>
+                        ✍️ <strong>Viết Prompt hiệu quả cho các tác vụ học tập</strong>
+                    </div>
+                    <span class="topic-desc">Tối ưu hóa câu lệnh (prompt) trên các công cụ AI để hỗ trợ nghiên cứu.</span>
+                </button>
+                <button class="topic-btn" onclick="openModal('topic4')">
+                    <div>
+                        🤝 <strong>Sử dụng công cụ hợp tác trực tuyến</strong>
+                    </div>
+                    <span class="topic-desc">Tương tác và làm việc nhóm hiệu quả thông qua các nền tảng số.</span>
+                </button>
+                <button class="topic-btn" onclick="openModal('topic5')">
+                    <div>
+                        🎨 <strong>Sử dụng AI tạo sinh để hỗ trợ sáng tạo nội dung</strong>
+                    </div>
+                    <span class="topic-desc">Khai thác khả năng của AI tạo sinh để phát triển bài báo cáo, sáng tạo ý tưởng.</span>
+                </button>
+                <button class="topic-btn" onclick="openModal('topic6')">
+                    <div>
+                        🛡️ <strong>Sử dụng AI có trách nhiệm trong học tập</strong>
+                    </div>
+                    <span class="topic-desc">Quy định và giới hạn đạo đức khi ứng dụng AI vào việc nghiên cứu học thuật.</span>
+                </button>
             </div>
         </section>
 
-        <!-- Tab 4: Tâm tư -->
         <section id="thoughts" class="section-content">
-            <h2>Góc tâm tư</h2>
-            <p>Bên cạnh những dòng code logic hay những thuật toán phức tạp của VNU1001, âm nhạc là nơi để tôi cân bằng lại mọi thứ. Đặc biệt là những âm hưởng mang đậm nét thanh xuân từ <strong>Yorushika</strong>.</p>
-            <p>Những câu chuyện được kể qua từng bài hát giống như một cuốn nhật ký ghi lại góc nhìn của một người vừa bước chân đến với tuổi trưởng thành. Sự chênh vênh, những mộng tưởng và cả nét thẩm mỹ đầy tính thơ ấy đôi khi lại là nguồn cảm hứng lớn nhất để tôi tiếp tục sáng tạo, dù là khi dựng một video mới hay thiết kế những dòng code này.</p>
         </section>
 
-        <!-- Tab 5: Tổng kết -->
         <section id="summary" class="section-content">
             <h2>Tổng kết quá trình</h2>
             <p>Về quá trình học tập Nhập môn công nghệ số & trí tuệ nhân tạo tại VNU, em nhận thấy mình đã học được khá nhiều kinh nghiệm trong việc sử dụng thiết bị công nghệ điện tử và áp dụng trí tuệ nhân tạo cho việc học tập và hỗ trợ dự án. Từ đó nhận thấy trí tuệ nhân tạo (AI) không chỉ đơn giản là tạo sinh những hình ảnh vô nghĩa ta thường thấy ở trên không gian mạng, mà đó còn là một công cụ đắc lực cho rất nhiều công việc và ngành nghề khác nhau. Trong quá trình học tập, em cũng đã gặp phải một vài thử thách và khó khăn mà đã cho em nhiều bài học quý để phát triển kỹ năng và cải thiện bản thân khi tiếp tục học tại môi trường Đại học Công nghệ nói riêng và các môi trường làm việc nói chung.</p>
@@ -629,7 +700,6 @@
         </section>
     </main>
 
-    <!-- NOTION-STYLE POPUP -->
     <div id="researchModal" class="modal-overlay">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal()">&times;</span>
@@ -640,24 +710,15 @@
         </div>
     </div>
 
-    <!-- KHU VỰC NÚT MẠNG XÃ HỘI NỔI VỚI FONT AWESOME ICONS -->
     <div class="social-floating">
-        <!-- Thay link của bạn vào href -->
-        <a href="https://github.com/your-github" target="_blank" class="social-btn" title="GitHub">
+        <a href="https://github.com/hwanganh" target="_blank" class="social-btn" title="GitHub">
             <i class="fa-brands fa-github"></i>
         </a>
-        <a href="mailto:your-email@gmail.com" class="social-btn" title="Email">
+        <a href="mailto:tai225ucq@mozmail.com" class="social-btn" title="Email">
             <i class="fa-solid fa-envelope"></i>
-        </a>
-        <a href="https://facebook.com/your-facebook" target="_blank" class="social-btn" title="Facebook">
-            <i class="fa-brands fa-facebook-f"></i>
-        </a>
-        <a href="https://youtube.com/your-channel" target="_blank" class="social-btn" title="YouTube">
-            <i class="fa-brands fa-youtube"></i>
         </a>
     </div>
 
-    <!-- JAVASCRIPT -->
     <script>
         function switchTab(tabId) {
             document.querySelectorAll('.section-content').forEach(section => {
@@ -692,6 +753,7 @@
 
         window.addEventListener('DOMContentLoaded', generateBubbles);
 
+        // GIỮ NGUYÊN TOÀN BỘ CHUỖI TEXT
         const researchData = {
             /* MỤC DỰ ÁN (PROJECTS) */
             'proj1': { 
@@ -743,7 +805,6 @@
             'topic4': { title: "🤝 Sử dụng công cụ hợp tác trực tuyến", content: "<h3>Kỹ năng làm việc nhóm</h3><p>Kinh nghiệm điều phối công việc, quản lý tiến độ trên không gian số tích hợp trực tuyến và giải quyết xung đột mã nguồn.</p>" },
             'topic5': { title: "🎨 Sử dụng AI tạo sinh hỗ trợ sáng tạo", content: "<h3>Hỗ trợ lên ý tưởng</h3><p>Phương pháp minh họa ý tưởng, soạn thảo đề cương nghiên cứu kết hợp giữa tư duy logic của con người và tốc độ của AI.</p>" },
             'topic6': { title: "🛡️ Sử dụng AI có trách nhiệm", content: "<h3>Đạo đức công nghệ</h3><p>Tìm hiểu các quy chuẩn đạo đức khoa học, phòng tránh đạo văn và đảm bảo tính minh bạch khi tham khảo tài liệu từ AI.</p>" },
-            'topic7': { title: "📊 Phân tích tài liệu với trợ lý AI", content: "<h3>Tối ưu thời gian đọc</h3><p>Sử dụng các bộ lọc ngôn ngữ và công cụ tóm tắt thông minh của AI để nắm bắt nhanh cốt lõi của các bài báo cáo khoa học dày đặc.</p>" }
         };
 
         const modal = document.getElementById('researchModal');
@@ -754,7 +815,18 @@
             const data = researchData[id];
             if(data) {
                 modalTitle.innerText = data.title;
-                modalBody.innerHTML = data.content;
+                
+                // Tự động tạo link file dựa theo ID của nút truyền vào
+                const pdfFileLink = "src/baitap/" + id + ".pdf";
+
+                modalBody.innerHTML = data.content + `
+                    <div style="margin-top: 25px;">
+                        <a href="${pdfFileLink}" target="_blank" class="pdf-link-btn">
+                            <i class="fa-solid fa-file-pdf"></i> Tài liệu tham khảo
+                        </a>
+                    </div>
+                `;
+                
                 modal.classList.add('active');
                 document.body.style.overflow = 'hidden';
             }
