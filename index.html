@@ -521,7 +521,18 @@
             line-height: 1.5;
         }
         
-        /* Style cho nút mở file PDF */
+        /* Style cho khung embed Google Docs */
+        .google-doc-embed {
+            width: 100%;
+            height: 500px;
+            border: none;
+            border-radius: 8px;
+            background: #fff;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Style cho nút mở file PDF (vẫn giữ nếu bạn muốn dùng song song) */
         .pdf-link-btn {
             display: inline-block;
             margin-top: 20px;
@@ -577,7 +588,6 @@
             <button class="nav-btn active" onclick="switchTab('profile')">Hồ sơ</button>
             <button class="nav-btn" onclick="switchTab('projects')">Dự án</button>
             <button class="nav-btn" onclick="switchTab('overview')">Tổng quan</button>
-            <button class="nav-btn" onclick="switchTab('thoughts')">Tâm tư</button>
             <button class="nav-btn" onclick="switchTab('summary')">Tổng kết</button>
         </div>
     </nav>
@@ -592,22 +602,20 @@
                     <span class="translation">"Thế giới này là một sân khấu, và tất cả đàn ông và phụ nữ là diễn viên của sân khấu đó."</span>
                     <cite>- William Shakespeare, Địa Đàng Tìm Thấy, Hồi II, Cảnh VII</cite>
                 </div>
-                <img src="src/icon.jpg" alt="Avatar Trích Dẫn" class="quote-avatar">
+                <img src="src/shakespeare.webp" alt="Avatar Trích Dẫn" class="quote-avatar">
             </div>
             
             <div class="profile-header">
                 <img src="src/icon.jpg" alt="Avatar Cá Nhân" class="profile-avatar">
                 
                 <div class="profile-info">
-                    <p><strong>Ngành học:</strong> Mạng máy tính và truyền thông dữ liệu</p>
-                    <p><strong>Trường:</strong> Đại học Công nghệ (UET) - Đại học Quốc gia Hà Nội (VNU)</p>
+                    <p>Mình là sinh viên năm nhất đang theo học ngành <strong>CN15 - Mạng máy tính và truyền thông dữ liệu</strong> của trường <strong>Đại học Công nghệ - ĐHQGHN</strong>. Với một niềm đam mê với lĩnh vực liên quan đến phần mềm máy tính và robot từ khi còn chập chững bước vào giai đoạn tuổi 2 chữ số, mình đã tìm tòi và khám phá ra được chân trời mới lạ này với các thiết bị nhúng nhỏ như Arduino, Raspberry Pi,... hay các hệ thống quản lý lớn đang được sử dụng bởi các tập đoàn/công ty đa quốc gia hay tại chính Việt Nam đây!</p>
                     
-                    <h3>Sở thích cá nhân</h3>
-                    <p>Ngoài thời gian trên giảng đường và nghiên cứu các dòng code, tôi thường dành thời gian cho một vài đam mê cá nhân để duy trì sự sáng tạo và cân bằng nhịp sống:</p>
+                    <p>Ngoài thời gian trên giảng đường và nghiên cứu các dòng code, mình thường dành thời gian cho một vài đam mê cá nhân để duy trì sự sáng tạo và cân bằng nhịp sống:</p>
                     <ul class="hobbies-list">
-                        <li><strong>Trải nghiệm Game:</strong> Tôi thường thử thách phản xạ với các tựa game Rhythm đòi hỏi độ chính xác cao như <em>osu!</em>, <em>maimai</em>, cũng như rèn luyện tư duy chiến thuật qua một vài tựa game đối kháng quen thuộc như <em>Mortal Kombat 11</em>.</li>
-                        <li><strong>Dựng Video (Video Editing):</strong> Có niềm đam mê đặc biệt với việc thiết kế hiệu ứng hình ảnh và edit video. Tôi thích mày mò sử dụng Adobe Premiere Pro và After Effects để tự tay tạo ra những sản phẩm mang đậm phong cách cá nhân.</li>
-                        <li><strong>Không gian âm nhạc:</strong> Đắm chìm trong âm hưởng của âm nhạc Nhật Bản, điển hình là những câu chuyện được kể qua các tác phẩm của <em>Yorushika</em> hay project <em>Tsukuyomi</em>.</li>
+                        <li><strong>Âm nhạc:</strong> Là một trong những mảng nghệ thuật dễ dàng tiếp cận tới sinh viên như mình nhất. Âm nhạc đối với mình là một nguồn sống, là những câu chuyện, và cũng là nguồn giải trí lớn nhất khi những tựa game mình chơi luôn coi âm nhạc là yếu tố chủ đạo như <em>osu!</em> hay <em>Phigros</em>.</li>
+                        <li><strong>Dựng Video (Video Editing):</strong> Bên cạnh âm nhạc, video editing cũng là một trong những sở thích mà mình thường hay làm khi rảnh rỗi. Mình thường sử dụng DaVinci Resolve và Premiere Pro để tạo nên những video mà mình cảm thấy phù hợp với sự sáng tạo của mình <a href="https://www.youtube.com/watch?v=AeJPESzMCTk">ví dụ như ở đây</a>.</li>
+                        <li><strong>Khám phá thế giới:</strong> Là sinh viên Công nghệ nhưng mình không phải lúc nào cũng chỉ chăm chăm vào việc lập trình. Mình cũng thích khám phá các ngóc ngách chưa từng được đi, những địa điểm rộng lớn và hùng vĩ, tạo cho mình cảm giác được tự do và thỏa mãn sự tò mò của bản thân.</li>
                     </ul>
                 </div>
             </div>
@@ -620,7 +628,7 @@
                 <iframe src="https://www.youtube.com/embed/GmNbM5l2biQ?autoplay=1" title="Project Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
 
-            <p>Dưới đây là các dự án/bài tập lớn em đã thực hiện trong quá trình học:</p>
+            <p>Dưới đây là các dự án/bài tập lớn mình đã thực hiện trong quá trình học:</p>
             <div class="grid-container">
                 <button class="research-btn" onclick="openModal('proj1')">🔨 Hệ thống đấu giá trực tuyến</button>
                 <button class="research-btn" onclick="openModal('proj2')">🤖 Thử nghiệm ứng dụng AI cải thiện năng suất</button>
@@ -629,7 +637,7 @@
 
         <section id="overview" class="section-content">
             <h2>Tổng quan môn học</h2>
-            <p>Đây là tất cả các nội dung mà em đã thực hiện cũng như tích lũy kinh nghiệm trong suốt quá trình học tập môn VNU1001:</p>
+            <p>Đây là tất cả các nội dung mà mình đã thực hiện cũng như tích lũy kinh nghiệm trong suốt quá trình học tập môn VNU1001:</p>
             
             <div class="topic-list">
                 <button class="topic-btn" onclick="openModal('topic1')">
@@ -676,7 +684,7 @@
 
         <section id="summary" class="section-content">
             <h2>Tổng kết quá trình</h2>
-            <p>Về quá trình học tập Nhập môn công nghệ số & trí tuệ nhân tạo tại VNU, em nhận thấy mình đã học được khá nhiều kinh nghiệm trong việc sử dụng thiết bị công nghệ điện tử và áp dụng trí tuệ nhân tạo cho việc học tập và hỗ trợ dự án. Từ đó nhận thấy trí tuệ nhân tạo (AI) không chỉ đơn giản là tạo sinh những hình ảnh vô nghĩa ta thường thấy ở trên không gian mạng, mà đó còn là một công cụ đắc lực cho rất nhiều công việc và ngành nghề khác nhau. Trong quá trình học tập, em cũng đã gặp phải một vài thử thách và khó khăn mà đã cho em nhiều bài học quý để phát triển kỹ năng và cải thiện bản thân khi tiếp tục học tại môi trường Đại học Công nghệ nói riêng và các môi trường làm việc nói chung.</p>
+            <p>Về quá trình học tập Nhập môn công nghệ số & trí tuệ nhân tạo tại VNU, mình nhận thấy mình đã học được khá nhiều kinh nghiệm trong việc sử dụng thiết bị công nghệ điện tử và áp dụng trí tuệ nhân tạo cho việc học tập và hỗ trợ dự án. Từ đó nhận thấy trí tuệ nhân tạo (AI) không chỉ đơn giản là tạo sinh những hình ảnh vô nghĩa ta thường thấy ở trên không gian mạng, mà đó còn là một công cụ đắc lực cho rất nhiều công việc và ngành nghề khác nhau. Trong quá trình học tập, mình cũng đã gặp phải một vài thử thách và khó khăn mà đã cho mình nhiều bài học quý để phát triển kỹ năng và cải thiện bản thân khi tiếp tục học tại môi trường Đại học Công nghệ nói riêng và các môi trường làm việc nói chung.</p>
             
             <div class="summary-container">
                 <div class="summary-column">
@@ -798,13 +806,13 @@
                 ` 
             },
             
-            /* MỤC TỔNG QUAN (TOPICS) */
-            'topic1': { title: "📁 Thao tác cơ bản với tệp tin và thư mục", content: "<p>Tổ chức không gian lưu trữ cá nhân và thao tác với các tệp tin trên máy tính một cách có hiệu quả và bài bản trên hệ điều hành Windows 10.</p>" },
-            'topic2': { title: "🔍 Tìm kiếm và đánh giá thông tin học thuật", content: "<p>Phương pháp khai thác hệ thống thư viện số VNU, cách chọn lọc nguồn dữ liệu tin cậy thông qua các chỉ số khoa học uy tín.</p>" },
-            'topic3': { title: "✍️ Viết Prompt hiệu quả cho các tác vụ học tập", content: "<p>Ứng dụng kỹ thuật cấu trúc prompt để khai thác các mô hình Generative AI tối ưu nhất.</p>" },
-            'topic4': { title: "🤝 Sử dụng công cụ hợp tác trực tuyến", content: "<p>Kinh nghiệm điều phối công việc, quản lý tiến độ trên không gian số tích hợp trực tuyến và giải quyết xung đột mã nguồn.</p>" },
-            'topic5': { title: "🎨 Sử dụng AI tạo sinh hỗ trợ sáng tạo", content: "<p>Phương pháp minh họa ý tưởng, soạn thảo đề cương nghiên cứu kết hợp giữa tư duy logic của con người và tốc độ của AI.</p>" },
-            'topic6': { title: "🛡️ Sử dụng AI có trách nhiệm", content: "<p>Tìm hiểu các quy chuẩn đạo đức khoa học, phòng tránh đạo văn và đảm bảo tính minh bạch khi tham khảo tài liệu từ AI.</p>" },
+            /* MỤC TỔNG QUAN (TOPICS) - CẬP NHẬT THÊM BIẾN docUrl ĐỂ NHÚNG TÀI LIỆU GOOGLE DOCS */
+            'topic1': { title: "📁 Thao tác cơ bản với tệp tin và thư mục", content: "<p>Nội dung chi tiết về kỹ năng quản lý dữ liệu số, cấu trúc cây thư mục khoa học phục vụ lưu trữ học thuật một cách hệ thống.</p>", docUrl: "https://drive.google.com/file/d/1K0e63c2zOhgZE_VRs6p7ku7U73ISE4Sm/preview"},
+            'topic2': { title: "🔍 Tìm kiếm và đánh giá thông tin học thuật", content: "<p>Phương pháp khai thác hệ thống thư viện số VNU, cách chọn lọc nguồn dữ liệu tin cậy thông qua các chỉ số khoa học uy tín.</p>", docUrl: "LINK_GOOGLE_DOC_CUA_BAN_2" },
+            'topic3': { title: "✍️ Viết Prompt hiệu quả cho các tác vụ học tập", content: "<p>Ứng dụng kỹ thuật cấu trúc prompt (Bối cảnh, Vai trò, Nhiệm vụ, Giới hạn) để khai thác các mô hình Generative AI tối ưu nhất.</p>", docUrl: "LINK_GOOGLE_DOC_CUA_BAN_3" },
+            'topic4': { title: "🤝 Sử dụng công cụ hợp tác trực tuyến", content: "<p>Kinh nghiệm điều phối công việc, quản lý tiến độ trên không gian số tích hợp trực tuyến và giải quyết xung đột mã nguồn.</p>", docUrl: "LINK_GOOGLE_DOC_CUA_BAN_4" },
+            'topic5': { title: "🎨 Sử dụng AI tạo sinh hỗ trợ sáng tạo", content: "<p>Phương pháp minh họa ý tưởng, soạn thảo đề cương nghiên cứu kết hợp giữa tư duy logic của con người và tốc độ của AI.</p>", docUrl: "LINK_GOOGLE_DOC_CUA_BAN_5" },
+            'topic6': { title: "🛡️ Sử dụng AI có trách nhiệm", content: "<p>Tìm hiểu các quy chuẩn đạo đức khoa học, phòng tránh đạo văn và đảm bảo tính minh bạch khi tham khảo tài liệu từ AI.</p>", docUrl: "LINK_GOOGLE_DOC_CUA_BAN_6" },
         };
 
         const modal = document.getElementById('researchModal');
@@ -819,13 +827,17 @@
                 // Khởi tạo nội dung modal ban đầu
                 let contentHTML = data.content;
 
-                // CHỈ thêm nút Tài liệu tham khảo nếu ID KHÔNG phải là của tab Dự án (không bắt đầu bằng 'proj')
+                // CHỈ thêm khung Embed Google Docs và nút Tài liệu tham khảo nếu ID KHÔNG phải là của tab Dự án
                 if (!id.startsWith('proj')) {
-                    // Tự động tạo link file dựa theo ID của nút truyền vào
-                    const pdfFileLink = "src/baitap/" + id + ".pdf";
+                    
+                    // Nếu bạn chưa thay link google doc, nó sẽ chỉ hiện 1 khung trắng mặc định
+                    const googleDocLink = data.docUrl && data.docUrl.startsWith('http') ? data.docUrl : 'about:blank';
+                    const pdfFileLink = "https://github.com/hwanganh/aquaticportfolio/blob/main/src/baitap/" + id + ".pdf";
 
                     contentHTML += `
-                        <div style="margin-top: 25px;">
+                    <iframe class="google-doc-embed" src="${googleDocLink}" width="640" height="480" title="Tài liệu tham khảo"></iframe>
+                        
+                        <div style="margin-top: 15px;">
                             <a href="${pdfFileLink}" target="_blank" class="pdf-link-btn">
                                 <i class="fa-solid fa-file-pdf"></i> Tệp PDF báo cáo
                             </a>
