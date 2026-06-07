@@ -801,7 +801,7 @@
             /* MỤC TỔNG QUAN (TOPICS) */
             'topic1': { title: "📁 Thao tác cơ bản với tệp tin và thư mục", content: "<p>Tổ chức không gian lưu trữ cá nhân và thao tác với các tệp tin trên máy tính một cách có hiệu quả và bài bản trên hệ điều hành Windows 10.</p>" },
             'topic2': { title: "🔍 Tìm kiếm và đánh giá thông tin học thuật", content: "<p>Phương pháp khai thác hệ thống thư viện số VNU, cách chọn lọc nguồn dữ liệu tin cậy thông qua các chỉ số khoa học uy tín.</p>" },
-            'topic3': { title: "✍️ Viết Prompt hiệu quả cho các tác vụ học tập", content: "<p>Ứng dụng kỹ thuật cấu trúc prompt (Bối cảnh, Vai trò, Nhiệm vụ, Giới hạn) để khai thác các mô hình Generative AI tối ưu nhất.</p>" },
+            'topic3': { title: "✍️ Viết Prompt hiệu quả cho các tác vụ học tập", content: "<p>Ứng dụng kỹ thuật cấu trúc prompt để khai thác các mô hình Generative AI tối ưu nhất.</p>" },
             'topic4': { title: "🤝 Sử dụng công cụ hợp tác trực tuyến", content: "<p>Kinh nghiệm điều phối công việc, quản lý tiến độ trên không gian số tích hợp trực tuyến và giải quyết xung đột mã nguồn.</p>" },
             'topic5': { title: "🎨 Sử dụng AI tạo sinh hỗ trợ sáng tạo", content: "<p>Phương pháp minh họa ý tưởng, soạn thảo đề cương nghiên cứu kết hợp giữa tư duy logic của con người và tốc độ của AI.</p>" },
             'topic6': { title: "🛡️ Sử dụng AI có trách nhiệm", content: "<p>Tìm hiểu các quy chuẩn đạo đức khoa học, phòng tránh đạo văn và đảm bảo tính minh bạch khi tham khảo tài liệu từ AI.</p>" },
@@ -816,16 +816,24 @@
             if(data) {
                 modalTitle.innerText = data.title;
                 
-                // Tự động tạo link file dựa theo ID của nút truyền vào
-                const pdfFileLink = "src/baitap/" + id + ".pdf";
+                // Khởi tạo nội dung modal ban đầu
+                let contentHTML = data.content;
 
-                modalBody.innerHTML = data.content + `
-                    <div style="margin-top: 25px;">
-                        <a href="${pdfFileLink}" target="_blank" class="pdf-link-btn">
-                            <i class="fa-solid fa-file-pdf"></i> Tệp báo cáo (.pdf)
-                        </a>
-                    </div>
-                `;
+                // CHỈ thêm nút Tài liệu tham khảo nếu ID KHÔNG phải là của tab Dự án (không bắt đầu bằng 'proj')
+                if (!id.startsWith('proj')) {
+                    // Tự động tạo link file dựa theo ID của nút truyền vào
+                    const pdfFileLink = "src/baitap/" + id + ".pdf";
+
+                    contentHTML += `
+                        <div style="margin-top: 25px;">
+                            <a href="${pdfFileLink}" target="_blank" class="pdf-link-btn">
+                                <i class="fa-solid fa-file-pdf"></i> Tệp PDF báo cáo
+                            </a>
+                        </div>
+                    `;
+                }
+
+                modalBody.innerHTML = contentHTML;
                 
                 modal.classList.add('active');
                 document.body.style.overflow = 'hidden';
